@@ -1,10 +1,10 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { SvgIcons } from '../../assets/SvgIcons';
-import { useLocation } from 'react-router';
-import { Sidebar } from '../ui/sidebar';
-import { Separator } from '../ui/separator';
-import IconPlaceholder from '../shared/IconPlaceholder';
-import { Button } from '../ui/button';
+import { ReactNode, useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import { SvgIcons } from "../../assets/SvgIcons";
+import IconPlaceholder from "../shared/IconPlaceholder";
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
+import { Sidebar } from "../ui/sidebar";
 
 const SidebarItem = ({
   icon,
@@ -22,7 +22,7 @@ const SidebarItem = ({
     onClick={onClick}
     className={`
     flex items-center p-1 rounded-full cursor-pointer w-full gap-4
-    ${active ? 'bg-gray-green text-sidebar-primary' : 'hover:bg-gray-100/10'}
+    ${active ? "bg-gray-green text-sidebar-primary" : "hover:bg-gray-100/10"}
   `}
   >
     <span className="rounded-full bg-card h-10 w-10 flex items-center justify-center shadow-[0px_0px_4px_0px_#00000033]">
@@ -33,15 +33,15 @@ const SidebarItem = ({
 );
 
 const sidebarItems = [
-  { icon: SvgIcons['discover'](), label: 'Discover', url: '/dashboard' },
-  { icon: SvgIcons['trade'](), label: 'Trade', url: '#' },
-  { icon: SvgIcons['rewards'](), label: 'Rewards', url: '#' },
-  { icon: SvgIcons['develop'](), label: 'Develop', url: '#' },
+  { icon: SvgIcons["discover"](), label: "Discover", url: "/dashboard" },
+  { icon: SvgIcons["trade"](), label: "Trade", url: "/dashboard/trade" },
+  { icon: SvgIcons["rewards"](), label: "Rewards", url: "#" },
+  { icon: SvgIcons["develop"](), label: "Develop", url: "#" },
 ];
 const sidebarItemstoo = [
-  { icon: SvgIcons['bug'](), label: 'Bug Report', url: '#' },
-  { icon: SvgIcons['discover'](), label: 'Security', url: '#' },
-  { icon: SvgIcons['setting'](), label: 'Settings', url: '#' },
+  { icon: SvgIcons["bug"](), label: "Bug Report", url: "#" },
+  { icon: SvgIcons["discover"](), label: "Security", url: "#" },
+  { icon: SvgIcons["setting"](), label: "Settings", url: "#" },
 ];
 const GWSidebar = () => {
   const { pathname } = useLocation();
@@ -68,7 +68,7 @@ const GWSidebar = () => {
             <IconPlaceholder className="h-7 w-7" />
           </div>
           <Button className="mt-auto w-full px-12 py-3">
-            <span>Fund</span> <span>{SvgIcons['arrow-right']()}</span>
+            <span>Fund</span> <span>{SvgIcons["arrow-right"]()}</span>
           </Button>
         </div>
         <div className="space-y-2">
