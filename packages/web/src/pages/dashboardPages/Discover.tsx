@@ -103,25 +103,27 @@ const Discover = () => {
         <h1 className="text-2xl text-center">Explore All Dapps In One Place</h1>
       </div>
 
-      <div className="flex flex-wrap items-center bg-white dark:bg-transparent p-2 justify-start mb-8 overflow-x-auto">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 mr-4 text-sm font-medium transition-colors duration-200 cursor-pointer ${
-              activeTab === category
-                ? "text-black dark:text-white border-b-2 border-black dark:border-white"
-                : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
-            }`}
-            onClick={() => setActiveTab(category)}
-          >
-            {category}
-          </button>
-        ))}
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between bg-white dark:bg-transparent p-2 mb-8">
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`px-4 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                activeTab === category
+                  ? "text-black dark:text-white border-b-2 border-black dark:border-white"
+                  : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+              }`}
+              onClick={() => setActiveTab(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-        <div className="ml-auto flex gap-2">
-          <Input placeholder="Search" />
-          <button className="flex items-center">
-            <img src="/search-icon.svg" alt="" />
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <Input placeholder="Search" className="w-full md:w-64" />
+          <button className="flex items-center justify-center p-2 dark:bg-white rounded-md">
+            <img src="/search-icon.svg" alt="Search" className="w-5 h-5" />
           </button>
         </div>
       </div>
