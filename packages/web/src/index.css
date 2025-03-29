@@ -149,3 +149,20 @@
         /* Firefox */
     }
 }
+
+.discoverSwiper .swiper-wrapper{
+    margin-bottom: 50px;
+}
+.discoverSwiper .swiper-pagination-bullet-active {
+    background: #2D2D2D;
+    width: 30px;
+    border-radius: 8px;
+}
+@media (prefers-color-scheme: dark) {
+    .discoverSwiper .swiper-pagination-bullet-active {
+      background: #0EB094;
+    }
+    .discoverSwiper .swiper-pagination-bullet {
+        background: #022D28;
+    }
+}
