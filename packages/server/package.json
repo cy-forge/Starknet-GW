@@ -9,6 +9,7 @@
     "dotenv": "^16.4.7",
     "hono": "^4.7.5",
     "jsonwebtoken": "^9.0.2",
+    "typeorm": "^0.3.21",
     "zod": "^3.24.2"
   },
   "devDependencies": {
