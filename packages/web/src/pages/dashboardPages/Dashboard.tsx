@@ -1,10 +1,10 @@
 import { SvgIcons } from '@/assets/SvgIcons';
 import { tokenColumns } from '@/components/dashboard/columns';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, EmptyCard } from '@/components/ui/card';
 import { DataTable } from '@/components/ui/data-table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PlusIcon } from 'lucide-react';
+
 
 const DashboardPage = () => {
   return (
@@ -125,16 +125,4 @@ const tokens = [
   },
 ];
 
-const EmptyCard = () => {
-  return (
-    <Card className="bg-transparent border-transparent shadow-none">
-      <CardContent className="pt-4 text-center space-y-4">
-        <h3 className="text-lg">Nothing to show here yet</h3>
-        <p className="text-sm">Fund your account to get started</p>
-        <Button>
-          <PlusIcon /> <span>Fund account</span>
-        </Button>
-      </CardContent>
-    </Card>
-  );
-};
+
