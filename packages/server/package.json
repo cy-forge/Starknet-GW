@@ -1,16 +1,30 @@
 {
   "name": "server",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "scripts": {
+    "dev": "bun run predev && bun run --hot index.ts",
+    "predev": "npx drizzle-kit generate && npx drizzle-kit migrate",
+    "generate": "npx drizzle-kit generate",
+    "migrate": "npx drizzle-kit migrate"
   },
   "dependencies": {
-    "drizzle": "^1.4.0",
-    "hono": "^4.7.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.41.0",
+    "hono": "^4.7.5",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.14.1",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0",
     "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.11",
+    "@types/qrcode": "^1.5.5",
+    "@types/speakeasy": "^2.0.10",
+    "drizzle-kit": "^0.30.6",
+    "tsx": "^4.19.3"
   }
 }
