@@ -33,7 +33,7 @@ const SidebarItem = ({
 );
 
 const sidebarItems = [
-  { icon: SvgIcons["discover"](), label: "Discover", url: "/dashboard" },
+  { icon: SvgIcons["discover"](), label: "Discover", url: "/discover" },
   { icon: SvgIcons["trade"](), label: "Trade", url: "/dashboard/trade" },
   { icon: SvgIcons["rewards"](), label: "Rewards", url: "#" },
   { icon: SvgIcons["develop"](), label: "Develop", url: "#" },

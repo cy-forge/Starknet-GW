@@ -2,6 +2,7 @@ import TradeDashboard from "@/pages/dashboardPages/TradeDashboard";
 import TradeDashboard_Event from "@/pages/dashboardPages/TradeDashboard_Event";
 import React from "react";
 import DashboardPage from "../pages/dashboardPages/Dashboard";
+import Discover from "@/pages/dashboardPages/Discover"
 
 interface Routes {
   path: string;
@@ -22,6 +23,10 @@ export const dashboardRoutes: Routes[] = [
     element: <TradeDashboard_Event />,
   },
 
+    {
+        path: "/discover",
+        element: <Discover />,
+    },
   // Add more routes here
   // Example:
   // {
