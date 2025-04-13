@@ -9,7 +9,8 @@ type JWTPayload = {
     role: string;
 }
 
-const rbacMiddleware = createMiddleware(async (c: any, next: Next) => {
+export const createRbacMiddleware = (allowedRoles: string[]) => {
+  return createMiddleware(async (c: any, next: Next) => {
     const authHeader = c.req.header('Authorization');  
     if (!authHeader) {  
       return c.json({ error: 'Unauthorized' }, 401);  
@@ -20,18 +21,24 @@ const rbacMiddleware = createMiddleware(async (c: any, next: Next) => {
       return c.json({ error: 'Unauthorized' }, 401);  
     }  
 
-  try {
-    const decoded: JWTPayload = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload;
-    const userRole = decoded.role;
+    try {
+      const decoded: JWTPayload = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload;
+      const userRole = decoded.role;
 
-    if (userRole !== 'admin') {
-      return c.json({ error: 'Access Denied' }, 403);
+      const hasAccess = allowedRoles.includes(userRole);
+
+      if (!hasAccess) {
+        return c.json({ error: 'Access Denied' }, 403);
+      }
+
+      c.set('user', decoded);
+
+      await next();
+    } catch (error) {
+      return c.json({ error: 'Invalid token' }, 401);
     }
+  });
+};
 
-    await next();
-  } catch (error) {
-    return c.json({ error: 'Invalid token' }, 401);
-  }
-});
-
-export default rbacMiddleware;
+// More further role based middlewares can be defined accordingly
+export const rbacAdminMiddleware = createRbacMiddleware(['admin']);
