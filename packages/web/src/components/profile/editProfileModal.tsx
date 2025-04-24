@@ -3,16 +3,16 @@
 import { useState } from "react"
 import { Twitter, Send } from "lucide-react"
 
-export default function EditProfileModal() {
-  const [isOpen, setIsOpen] = useState(true)
+interface EditProfileModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+export default function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
   const [username, setUsername] = useState("")
   const [description, setDescription] = useState("")
   const [twitterConnected, setTwitterConnected] = useState(true)
   const [telegramConnected, setTelegramConnected] = useState(false)
-
-  const handleClose = () => {
-    setIsOpen(false)
-  }
 
   const toggleTwitterConnection = () => {
     setTwitterConnected(!twitterConnected)
@@ -25,27 +25,27 @@ export default function EditProfileModal() {
   const handleSaveChanges = () => {
     // Handle save logic here
     console.log("Saving changes:", { username, description })
-    setIsOpen(false)
+    onClose()
   }
 
   if (!isOpen) return null
-// 648
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-      <div className="relative w-full max-w-[648px] bg-[#001413] text-white shadow-xl overflow-hidden border-2 border-[#314140] rounded-[16px]">
+      <div className="relative w-full max-w-[648px] bg-[#001413] text-white rounded-[16px] border-2 border-[#314140] shadow-xl overflow-hidden">
         <div className="p-6 space-y-6">
           {/* Header */}
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-medium">Edit Profile</h2>
             <button
-              onClick={handleClose}
+              onClick={onClose}
               className="bg-[#2a3038] hover:bg-[#3a404a] transition-colors rounded-full px-4 py-1.5 text-sm"
             >
               Close
             </button>
           </div>
 
-          <div className="h-px bg-[#1a1e24] w-full my-4"></div>
+          <div className="h-px bg-[#1a1e24] w-full my-2"></div>
 
           {/* About Section */}
           <div className="space-y-4">

@@ -4,15 +4,18 @@ import { useState } from "react"
 import EditProfileModal from "@/components/profile/editProfileModal"
 import { Button } from "@/components/ui/button"
 
-const HomePage = () => {
+export default function Home() {
   const [showModal, setShowModal] = useState(false)
 
-  return <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-900">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi obcaecati similique corporis illum, fugiat libero assumenda sapiente. Ipsum nulla reiciendis officiis dolorem dicta nisi quam magni, consequuntur animi similique necessitatibus exercitationem cumque dignissimos nemo dolor repudiandae! Minima, vel? Totam, reiciendis.
-    <Button onClick={() => setShowModal(true)}>Open Edit Profile</Button>
+  const openModal = () => setShowModal(true)
+  const closeModal = () => setShowModal(false)
 
-    {showModal && <EditProfileModal />}
-  </main>;
-};
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-900">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur molestias, aspernatur earum repellat repellendus ex exercitationem nemo tempora magnam non.
+      <Button onClick={openModal}>Open Edit Profile</Button>
 
-export default HomePage;
+      <EditProfileModal isOpen={showModal} onClose={closeModal} />
+    </main>
+  )
+}
