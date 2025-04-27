@@ -1,11 +1,29 @@
-import { ReactNode, useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import { SvgIcons } from "../../assets/SvgIcons";
-import { Account } from "../dashboard/account";
-import IconPlaceholder from "../shared/IconPlaceholder";
-import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
-import { Sidebar } from "../ui/sidebar";
+import { ReactNode, useEffect, useState, useMemo } from 'react';
+import { useLocation } from 'react-router';
+import { SvgIcons } from '../../assets/SvgIcons';
+import { Account } from '../dashboard/account';
+import IconPlaceholder from '../shared/IconPlaceholder';
+import { Button } from '../ui/button';
+import { Separator } from '../ui/separator';
+import { Sidebar } from '../ui/sidebar';
+import { SettingsModal } from '../dashboard/settings';
+
+type BaseSidebarItem = {
+  icon: ReactNode;
+  label: string;
+};
+
+type UrlSidebarItem = BaseSidebarItem & {
+  url: string;
+  onclick?: never;
+};
+
+type ActionSidebarItem = BaseSidebarItem & {
+  url?: never;
+  onclick: () => void;
+};
+
+type SidebarItem = UrlSidebarItem | ActionSidebarItem;
 
 const SidebarItem = ({
   icon,
@@ -23,7 +41,7 @@ const SidebarItem = ({
     onClick={onClick}
     className={`
     flex items-center p-1 rounded-full cursor-pointer w-full gap-4
-    ${active ? "bg-gray-green text-sidebar-primary" : "hover:bg-gray-100/10"}
+    ${active ? 'bg-gray-green text-sidebar-primary' : 'hover:bg-gray-100/10'}
   `}
   >
     <span className="rounded-full bg-card h-10 w-10 flex items-center justify-center shadow-[0px_0px_4px_0px_#00000033]">
@@ -33,26 +51,36 @@ const SidebarItem = ({
   </button>
 );
 
-const sidebarItems = [
-  { icon: SvgIcons["discover"](), label: "Discover", url: "/discover" },
-  { icon: SvgIcons["trade"](), label: "Trade", url: "/dashboard/trade" },
-  { icon: SvgIcons["rewards"](), label: "Rewards", url: "#" },
-  { icon: SvgIcons["develop"](), label: "Develop", url: "#" },
+const sidebarItems: UrlSidebarItem[] = [
+  { icon: SvgIcons['discover'](), label: 'Discover', url: '/discover' },
+  { icon: SvgIcons['trade'](), label: 'Trade', url: '/dashboard/trade' },
+  { icon: SvgIcons['rewards'](), label: 'Rewards', url: '#' },
+  { icon: SvgIcons['develop'](), label: 'Develop', url: '#' },
 ];
-const sidebarItemstoo = [
-  { icon: SvgIcons["bug"](), label: "Bug Report", url: "#" },
-  { icon: SvgIcons["discover"](), label: "Security", url: "#" },
-  { icon: SvgIcons["setting"](), label: "Settings", url: "#" },
-];
+
 const GWSidebar = () => {
   const { pathname } = useLocation();
-  const [activeItem, setActiveItem] = useState(() =>
+  const [settingsOpen, setSettingOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState<SidebarItem | undefined>(() =>
     sidebarItems?.find((item) => item.url === pathname)
   );
 
   useEffect(() => {
     setActiveItem(sidebarItems?.find((item) => pathname.includes(item.url)));
   }, [pathname]);
+
+  const sidebarItemstoo = useMemo<SidebarItem[]>(
+    () => [
+      { icon: SvgIcons['bug'](), label: 'Bug Report', url: '#' },
+      { icon: SvgIcons['discover'](), label: 'Security', url: '#' },
+      {
+        icon: SvgIcons['setting'](),
+        label: 'Settings',
+        onclick: () => setSettingOpen(true),
+      },
+    ],
+    []
+  );
 
   return (
     <Sidebar className="bg-transparent lg:left-[50px] lg:top-[50px] lg:bottom-2 overflow-hidden block px-4 w-full lg:w-[20.625rem]">
@@ -69,7 +97,7 @@ const GWSidebar = () => {
             <Account />
           </div>
           <Button className="mt-auto w-full px-12 py-3">
-            <span>Fund</span> <span>{SvgIcons["arrow-right"]()}</span>
+            <span>Fund</span> <span>{SvgIcons['arrow-right']()}</span>
           </Button>
         </div>
         <div className="space-y-2">
@@ -89,11 +117,17 @@ const GWSidebar = () => {
               icon={item.icon}
               label={item.label}
               active={activeItem?.label === item.label}
-              onClick={() => setActiveItem(item)}
+              onClick={() => {
+                setActiveItem(item);
+                if (item.onclick) {
+                  item.onclick();
+                }
+              }}
             />
           ))}
         </div>
       </section>
+      <SettingsModal isOpen={settingsOpen} setIsOpen={setSettingOpen} />
     </Sidebar>
   );
 };
