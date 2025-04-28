@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router';
-import GWSidebar from './SideBar';
-import { SidebarProvider, SidebarTrigger } from '../ui/sidebar';
-import { setupThemeToggle } from '@/lib/themeToggle';
-import { Switch } from '../ui/switch';
-import { SvgIcons } from '@/assets/SvgIcons';
-import { Copy } from 'lucide-react';
-import IconPlaceholder from '../shared/IconPlaceholder';
+import { SvgIcons } from "@/assets/SvgIcons";
+import { setupThemeToggle } from "@/lib/themeToggle";
+import { Copy } from "lucide-react";
+import { Outlet } from "react-router";
+import { Account } from "../dashboard/account";
+import { SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { Switch } from "../ui/switch";
+import GWSidebar from "./SideBar";
 
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 const DashboardLayout = () => {
@@ -17,7 +17,7 @@ const DashboardLayout = () => {
           <div className="absolute top-0 right-0 w-max flex gap-2 items-center">
             <SidebarTrigger />
             <Switch defaultChecked={isDarkMode} onClick={toggleTheme} />
-            <IconPlaceholder className="w-[34px] h-[34px]" />
+            <Account />
             <div className="flex text-xs items-center gap-2.5 py-2.5 px-6 rounded-full border border-[#DEDEDE] dark:border-[#314140]">
               <span className="block max-w-[138px] truncate">
                 0x6526add146daa32e6781def
@@ -27,7 +27,7 @@ const DashboardLayout = () => {
                 <Copy className="h-3.5 w-3.5" />
               </button>
             </div>
-            <span>{SvgIcons['dashes']()}</span>
+            <span>{SvgIcons["dashes"]()}</span>
           </div>
 
           <Outlet />
