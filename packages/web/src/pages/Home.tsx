@@ -3,7 +3,7 @@ import { BronzeTier } from '@/components/dashboard/BronzeTier';
 import { Switch } from '@/components/ui/switch';
 import { setupThemeToggle } from '@/lib/themeToggle';
 import { Link } from 'react-router';
-
+import BadgeDetails from '@/components/badge/badgeModal';
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 
 const HomePage = () => {
@@ -49,8 +49,16 @@ const HomePage = () => {
         <li>
           <div className="text-primary-bluegreen hover:underline flex items-center">
             Account Modal <Account />
+           
           </div>
         </li>
+        <li>
+          <div className="text-primary-bluegreen hover:underline flex items-center">
+           Badge Modal <BadgeDetails />
+           
+          </div>
+        </li>
+       
       </ul>
       <div>
         <BronzeTier
@@ -61,6 +69,8 @@ const HomePage = () => {
           timeLeft={{ hours: 132, minutes: 48, seconds: 3 }}
         />
       </div>
+      
+       
     </div>
   );
 };
