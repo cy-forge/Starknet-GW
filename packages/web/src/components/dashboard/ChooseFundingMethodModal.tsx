@@ -32,8 +32,8 @@ export default function ChooseFundingMethodModal({
       <DialogContent className="w-full !max-w-[557px]">
         <DialogHeader>
           <DialogTitle className="font-normal md:text-2xl text-xl lg:text-[28px]">
-            <span className='text-gray-green dark:text-primary-text'>Fund your account</span>
-            <p className='text-primary-text dark:text-grayish text-base mt-2'>How would you love to fund your global wallet</p>
+            <span className='text-[#1E1E1E] dark:text-[#F4F6FA]'>Fund your account</span>
+            <p className='text-[#1E1E1E] dark:text-[#9DA3AC] text-base mt-2'>How would you love to fund your global wallet</p>
           </DialogTitle>
           <DialogDescription>
             <div className="grid gap-4 mt-6">
