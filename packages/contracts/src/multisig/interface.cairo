@@ -1,4 +1,4 @@
-use argent::signer::signer_signature::{Signer, SignerSignature};
+use orbis::signer::signer_signature::{Signer, SignerSignature};
 use starknet::{ContractAddress, account::Call};
 
 #[starknet::interface]

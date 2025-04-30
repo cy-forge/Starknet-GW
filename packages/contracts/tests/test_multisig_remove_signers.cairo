@@ -1,8 +1,8 @@
-use argent::multisig::multisig::{multisig_component};
-use argent::signer::signer_signature::{
+use orbis::multisig::multisig::{multisig_component};
+use orbis::signer::signer_signature::{
     Signer, SignerTrait, StarknetSigner, SignerSignature, starknet_signer_from_pubkey
 };
-use argent::signer_storage::signer_list::{signer_list_component};
+use orbis::signer_storage::signer_list::{signer_list_component};
 use snforge_std::{spy_events, SpyOn, EventSpy, EventFetcher, EventAssertions};
 use super::setup::constants::{MULTISIG_OWNER};
 use super::setup::multisig_test_setup::{

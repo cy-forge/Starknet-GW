@@ -1,4 +1,4 @@
-use argent::offchain_message::interface::IStructHashRev1;
+use orbis::offchain_message::interface::IStructHashRev1;
 use hash::HashStateTrait;
 use poseidon::{hades_permutation, HashState};
 use starknet::get_contract_address;

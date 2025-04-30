@@ -1,4 +1,4 @@
-use argent::recovery::interface::{EscapeEnabled, EscapeStatus};
+use orbis::recovery::interface::{EscapeEnabled, EscapeStatus};
 use starknet::ContractAddress;
 
 /// @notice Escape represent a call that will be performed on the account when the escape is ready

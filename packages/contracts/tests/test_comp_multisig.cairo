@@ -1,9 +1,9 @@
-use argent::mocks::multisig_mocks::MultisigMock;
-use argent::multisig::interface::IArgentMultisig;
-use argent::multisig::interface::IArgentMultisigInternal;
-use argent::multisig::multisig::multisig_component;
-use argent::signer::{signer_signature::{Signer, StarknetSigner, starknet_signer_from_pubkey, SignerTrait}};
-use argent::signer_storage::signer_list::signer_list_component;
+use orbis::mocks::multisig_mocks::MultisigMock;
+use orbis::multisig::interface::IArgentMultisig;
+use orbis::multisig::interface::IArgentMultisigInternal;
+use orbis::multisig::multisig::multisig_component;
+use orbis::signer::{signer_signature::{Signer, StarknetSigner, starknet_signer_from_pubkey, SignerTrait}};
+use orbis::signer_storage::signer_list::signer_list_component;
 use snforge_std::{start_prank, CheatTarget, test_address};
 use super::setup::constants::{MULTISIG_OWNER};
 

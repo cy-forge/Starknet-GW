@@ -1,11 +1,13 @@
-use argent::multisig::multisig::{multisig_component};
-use argent::signer::signer_signature::{Signer, SignerTrait, SignerSignature, starknet_signer_from_pubkey};
-use argent::signer_storage::signer_list::{signer_list_component};
+use orbis::multisig::multisig::{multisig_component};
+use orbis::signer::signer_signature::{
+    Signer, SignerTrait, SignerSignature, starknet_signer_from_pubkey,
+};
+use orbis::signer_storage::signer_list::{signer_list_component};
 use snforge_std::{spy_events, SpyOn, EventSpy, EventFetcher, EventAssertions};
 use super::setup::constants::MULTISIG_OWNER;
 use super::setup::multisig_test_setup::{
     initialize_multisig, initialize_multisig_with, ITestArgentMultisigDispatcherTrait,
-    initialize_multisig_with_one_signer
+    initialize_multisig_with_one_signer,
 };
 
 #[test]
@@ -18,7 +20,7 @@ fn replace_signer_1() {
     let signer_to_add = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     multisig.replace_signer(signer_1, signer_to_add);
 
-    // check 
+    // check
     let signers = multisig.get_signer_guids();
     assert_eq!(signers.len(), 1, "signer list changed size");
     assert_eq!(multisig.get_threshold(), 1, "threshold changed");
@@ -32,14 +34,16 @@ fn replace_signer_start() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
     let mut spy = spy_events(SpyOn::One(multisig.contract_address));
 
     // replace signer
     let signer_to_add = starknet_signer_from_pubkey(5);
     multisig.replace_signer(signer_1, signer_to_add);
 
-    // check 
+    // check
     let signers = multisig.get_signer_guids();
     assert_eq!(signers.len(), 3, "signer list changed size");
     assert_eq!(multisig.get_threshold(), 1, "threshold changed");
@@ -54,21 +58,25 @@ fn replace_signer_start() {
         (
             multisig.contract_address,
             signer_list_component::Event::OwnerRemovedGuid(
-                signer_list_component::OwnerRemovedGuid { removed_owner_guid: signer_1.into_guid() }
-            )
+                signer_list_component::OwnerRemovedGuid {
+                    removed_owner_guid: signer_1.into_guid(),
+                },
+            ),
         ),
         (
             multisig.contract_address,
             signer_list_component::Event::OwnerAddedGuid(
-                signer_list_component::OwnerAddedGuid { new_owner_guid: signer_to_add.into_guid() }
-            )
+                signer_list_component::OwnerAddedGuid { new_owner_guid: signer_to_add.into_guid() },
+            ),
         ),
         (
             multisig.contract_address,
             signer_list_component::Event::SignerLinked(
-                signer_list_component::SignerLinked { signer_guid: signer_to_add.into_guid(), signer: signer_to_add }
-            )
-        )
+                signer_list_component::SignerLinked {
+                    signer_guid: signer_to_add.into_guid(), signer: signer_to_add,
+                },
+            ),
+        ),
     ];
     spy.assert_emitted(@events);
 
@@ -81,13 +89,15 @@ fn replace_signer_middle() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
 
     // replace signer
     let signer_to_add = starknet_signer_from_pubkey(5);
     multisig.replace_signer(signer_2, signer_to_add);
 
-    // check 
+    // check
     let signers = multisig.get_signer_guids();
     assert_eq!(signers.len(), 3, "signer list changed size");
     assert_eq!(multisig.get_threshold(), 1, "threshold changed");
@@ -103,13 +113,15 @@ fn replace_signer_end() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
 
     // replace signer
     let signer_to_add = starknet_signer_from_pubkey(5);
     multisig.replace_signer(signer_3, signer_to_add);
 
-    // check 
+    // check
     let signers = multisig.get_signer_guids();
     assert_eq!(signers.len(), 3, "signer list changed size");
     assert_eq!(multisig.get_threshold(), 1, "threshold changed");
@@ -126,7 +138,9 @@ fn replace_invalid_signer() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
 
     // replace signer
 
@@ -142,7 +156,9 @@ fn replace_already_signer() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
 
     // replace signer
     multisig.replace_signer(signer_3, signer_1);
@@ -155,7 +171,9 @@ fn replace_already_same_signer() {
     let signer_1 = starknet_signer_from_pubkey(MULTISIG_OWNER(1).pubkey);
     let signer_2 = starknet_signer_from_pubkey(MULTISIG_OWNER(2).pubkey);
     let signer_3 = starknet_signer_from_pubkey(MULTISIG_OWNER(3).pubkey);
-    let multisig = initialize_multisig_with(threshold: 1, signers: array![signer_1, signer_2, signer_3].span());
+    let multisig = initialize_multisig_with(
+        threshold: 1, signers: array![signer_1, signer_2, signer_3].span(),
+    );
 
     // replace signer
     multisig.replace_signer(signer_1, signer_1);

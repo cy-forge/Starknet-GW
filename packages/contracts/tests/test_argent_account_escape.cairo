@@ -1,6 +1,6 @@
-use argent::presets::argent_account::ArgentAccount;
-use argent::recovery::interface::EscapeStatus;
-use argent::signer::signer_signature::starknet_signer_from_pubkey;
+use orbis::presets::argent_account::ArgentAccount;
+use orbis::recovery::interface::EscapeStatus;
+use orbis::signer::signer_signature::starknet_signer_from_pubkey;
 use snforge_std::{spy_events, start_warp, SpyOn, start_prank, CheatTarget, EventAssertions};
 use super::setup::account_test_setup::{ITestArgentAccountDispatcherTrait, initialize_account};
 
@@ -8,7 +8,9 @@ use super::setup::account_test_setup::{ITestArgentAccountDispatcherTrait, initia
 fn set_escape_security_period() {
     let account = initialize_account();
     let default_escape_security_period = account.get_escape_security_period();
-    assert_eq!(default_escape_security_period, consteval_int!(7 * 24 * 60 * 60), "Default value incorrect");
+    assert_eq!(
+        default_escape_security_period, consteval_int!(7 * 24 * 60 * 60), "Default value incorrect",
+    );
 
     let (_, status) = account.get_escape_and_status();
     assert_eq!(status, EscapeStatus::None, "Should be EscapeStatus::None");
@@ -19,7 +21,7 @@ fn set_escape_security_period() {
     assert_eq!(new_escape_security_period, 4200, "New value incorrect");
 
     let event = ArgentAccount::Event::EscapeSecurityPeriodChanged(
-        ArgentAccount::EscapeSecurityPeriodChanged { escape_security_period: 4200 }
+        ArgentAccount::EscapeSecurityPeriodChanged { escape_security_period: 4200 },
     );
     spy.assert_emitted(@array![(account.contract_address, event)]);
     assert_eq!(spy.events.len(), 0, "excess events");

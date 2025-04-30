@@ -1,5 +1,5 @@
-use argent::signer::signer_signature::{Signer, SignerSignature, StarknetSignature, StarknetSigner, SignerTrait};
-use argent::utils::serialization::serialize;
+use orbis::signer::signer_signature::{Signer, SignerSignature, StarknetSignature, StarknetSigner, SignerTrait};
+use orbis::utils::serialization::serialize;
 use snforge_std::{start_prank, start_spoof, CheatTarget, TxInfoMockTrait};
 use starknet::ContractAddress;
 use super::constants::KeyAndSig;

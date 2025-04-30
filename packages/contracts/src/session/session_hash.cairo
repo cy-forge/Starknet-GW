@@ -1,8 +1,8 @@
-use argent::offchain_message::{
+use orbis::offchain_message::{
     interface::{StarknetDomain, StructHashStarknetDomain, IMerkleLeafHash, IStructHashRev1, IOffChainMessageHashRev1,},
     precalculated_hashing::get_message_hash_rev_1_with_precalc
 };
-use argent::session::interface::Session;
+use orbis::session::interface::Session;
 use hash::{HashStateExTrait, HashStateTrait};
 use poseidon::{hades_permutation, poseidon_hash_span, HashState};
 use starknet::{get_contract_address, get_tx_info, account::Call};

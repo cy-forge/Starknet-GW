@@ -1,6 +1,6 @@
-use argent::external_recovery::interface::{EscapeCall, Escape};
-use argent::recovery::interface::{EscapeEnabled, EscapeStatus};
-use argent::utils::serialization::serialize;
+use orbis::external_recovery::interface::{EscapeCall, Escape};
+use orbis::recovery::interface::{EscapeEnabled, EscapeStatus};
+use orbis::utils::serialization::serialize;
 
 /// This trait must be implemented when using the component `external_recovery`
 trait IExternalRecoveryCallback<TContractState> {
@@ -14,15 +14,15 @@ trait IExternalRecoveryCallback<TContractState> {
 /// @dev The recovery can be canceled by the authorized signers
 #[starknet::component]
 mod external_recovery_component {
-    use argent::external_recovery::interface::{
+    use orbis::external_recovery::interface::{
         IExternalRecovery, EscapeCall, Escape, EscapeTriggered, EscapeExecuted, EscapeCanceled,
     };
-    use argent::recovery::interface::{EscapeEnabled, EscapeStatus};
-    use argent::signer::signer_signature::{Signer, SignerTrait};
-    use argent::signer_storage::interface::ISignerList;
-    use argent::signer_storage::signer_list::{signer_list_component, signer_list_component::{SignerListInternalImpl}};
-    use argent::utils::asserts::assert_only_self;
-    use argent::utils::serialization::serialize;
+    use orbis::recovery::interface::{EscapeEnabled, EscapeStatus};
+    use orbis::signer::signer_signature::{Signer, SignerTrait};
+    use orbis::signer_storage::interface::ISignerList;
+    use orbis::signer_storage::signer_list::{signer_list_component, signer_list_component::{SignerListInternalImpl}};
+    use orbis::utils::asserts::assert_only_self;
+    use orbis::utils::serialization::serialize;
     use openzeppelin::security::reentrancyguard::{ReentrancyGuardComponent, ReentrancyGuardComponent::InternalImpl};
     use starknet::{
         get_block_timestamp, get_contract_address, get_caller_address, ContractAddress, account::Call,

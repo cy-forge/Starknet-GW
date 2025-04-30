@@ -1,7 +1,7 @@
 #[starknet::component]
 mod signer_list_component {
-    use argent::signer::signer_signature::Signer;
-    use argent::signer_storage::interface::ISignerList;
+    use orbis::signer::signer_signature::Signer;
+    use orbis::signer_storage::interface::ISignerList;
 
     #[storage]
     struct Storage {

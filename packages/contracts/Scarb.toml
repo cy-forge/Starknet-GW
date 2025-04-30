@@ -1,5 +1,5 @@
 [package]
-name = "orbis_wallet_contracts"
+name = "orbis"
 version = "0.1.0"
 cairo-version = "2.6.3"
 

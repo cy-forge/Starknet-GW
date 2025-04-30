@@ -1,11 +1,11 @@
-use argent::offchain_message::{
+use orbis::offchain_message::{
     interface::{
         StarkNetDomain, StarknetDomain, StructHashStarkNetDomain, IOffChainMessageHashRev0, IStructHashRev0,
         IOffChainMessageHashRev1, IStructHashRev1
     },
     precalculated_hashing::get_message_hash_rev_1_with_precalc
 };
-use argent::outside_execution::interface::{OutsideExecution};
+use orbis::outside_execution::interface::{OutsideExecution};
 use hash::{HashStateTrait, HashStateExTrait};
 use pedersen::PedersenTrait;
 use poseidon::{poseidon_hash_span, hades_permutation, HashState};

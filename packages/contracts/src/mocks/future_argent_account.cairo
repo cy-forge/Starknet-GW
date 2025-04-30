@@ -1,6 +1,6 @@
 /// @dev 🚨 This smart contract is a mock implementation and is not meant for actual deployment or use in any live environment. It is solely for testing, educational, or demonstration purposes. Please refrain from relying on the functionality of this contract for any production. 🚨
-use argent::account::interface::{IAccount, IArgentAccount, Version};
-use argent::signer::{
+use orbis::account::interface::{IAccount, IArgentAccount, Version};
+use orbis::signer::{
     signer_signature::{
         Signer, SignerStorageValue, SignerType, StarknetSigner, StarknetSignature, SignerTrait, SignerStorageTrait,
         SignerSignature, SignerSignatureTrait, starknet_signer_from_pubkey
@@ -9,17 +9,17 @@ use argent::signer::{
 
 #[starknet::contract(account)]
 mod MockFutureArgentAccount {
-    use argent::account::interface::{IAccount, IArgentAccount, Version};
-    use argent::introspection::src5::src5_component;
+    use orbis::account::interface::{IAccount, IArgentAccount, Version};
+    use orbis::introspection::src5::src5_component;
 
-    use argent::signer::{
+    use orbis::signer::{
         signer_signature::{
             Signer, SignerStorageValue, SignerType, StarknetSigner, StarknetSignature, SignerTrait, SignerStorageTrait,
             SignerSignature, SignerSignatureTrait, starknet_signer_from_pubkey
         }
     };
-    use argent::upgrade::{upgrade::upgrade_component, interface::{IUpgradableCallback, IUpgradableCallbackOld}};
-    use argent::utils::{
+    use orbis::upgrade::{upgrade::upgrade_component, interface::{IUpgradableCallback, IUpgradableCallbackOld}};
+    use orbis::utils::{
         asserts::{assert_no_self_call, assert_only_self}, calls::execute_multicall, serialization::full_deserialize,
     };
     use core::option::OptionTrait;

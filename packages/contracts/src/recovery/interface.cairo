@@ -1,5 +1,5 @@
-use argent::signer::signer_signature::{Signer, SignerStorageValue, SignerSignature, SignerType};
-use argent::utils::array_store::StoreFelt252Array;
+use orbis::signer::signer_signature::{Signer, SignerStorageValue, SignerSignature, SignerType};
+use orbis::utils::array_store::StoreFelt252Array;
 use starknet::ContractAddress;
 
 #[starknet::interface]

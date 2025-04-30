@@ -1,4 +1,4 @@
-use argent::account::interface::Version;
+use orbis::account::interface::Version;
 use starknet::ClassHash;
 #[starknet::interface]
 trait IUpgradeable<TContractState> {

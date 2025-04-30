@@ -2,18 +2,18 @@
 /// adding or removing signers, changing the threshold, etc
 #[starknet::component]
 mod multisig_component {
-    use argent::multisig::interface::{IArgentMultisig, IArgentMultisigInternal};
-    use argent::signer::{
+    use orbis::multisig::interface::{IArgentMultisig, IArgentMultisigInternal};
+    use orbis::signer::{
         signer_signature::{Signer, SignerTrait, SignerSignature, SignerSignatureTrait, SignerSpanTrait},
     };
-    use argent::signer_storage::{
+    use orbis::signer_storage::{
         interface::ISignerList,
         signer_list::{
             signer_list_component,
             signer_list_component::{OwnerAddedGuid, OwnerRemovedGuid, SignerLinked, SignerListInternalImpl}
         }
     };
-    use argent::utils::{transaction_version::is_estimate_transaction, asserts::assert_only_self};
+    use orbis::utils::{transaction_version::is_estimate_transaction, asserts::assert_only_self};
 
     /// Too many owners could make the multisig unable to process transactions if we reach a limit
     const MAX_SIGNERS_COUNT: usize = 32;

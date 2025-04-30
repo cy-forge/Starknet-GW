@@ -18,16 +18,16 @@ trait IThresholdRecoveryInternal<TContractState> {
 /// The recovery can be canceled by threshold signers. 
 #[starknet::component]
 mod threshold_recovery_component {
-    use argent::recovery::interface::{
+    use orbis::recovery::interface::{
         Escape, EscapeEnabled, EscapeStatus, IRecovery, EscapeExecuted, EscapeTriggered, EscapeCanceled
     };
-    use argent::signer::signer_signature::{Signer, SignerTrait};
-    use argent::signer_storage::interface::ISignerList;
-    use argent::signer_storage::signer_list::{
+    use orbis::signer::signer_signature::{Signer, SignerTrait};
+    use orbis::signer_storage::interface::ISignerList;
+    use orbis::signer_storage::signer_list::{
         signer_list_component,
         signer_list_component::{SignerListInternalImpl, OwnerAddedGuid, OwnerRemovedGuid, SignerLinked}
     };
-    use argent::utils::asserts::assert_only_self;
+    use orbis::utils::asserts::assert_only_self;
     use core::array::ArrayTrait;
     use starknet::{get_block_timestamp, get_contract_address, ContractAddress, account::Call};
     use super::{IThresholdRecoveryInternal, IToggleThresholdRecovery};

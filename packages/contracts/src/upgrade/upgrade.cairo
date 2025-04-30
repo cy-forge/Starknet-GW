@@ -1,4 +1,4 @@
-use argent::account::interface::SRC5_ACCOUNT_INTERFACE_ID;
+use orbis::account::interface::SRC5_ACCOUNT_INTERFACE_ID;
 
 use starknet::{ClassHash, syscalls::replace_class_syscall};
 
@@ -9,12 +9,12 @@ trait IUpgradeInternal<TContractState> {
 
 #[starknet::component]
 mod upgrade_component {
-    use argent::account::interface::SRC5_ACCOUNT_INTERFACE_ID;
-    use argent::introspection::interface::{ISRC5LibraryDispatcher, ISRC5DispatcherTrait};
-    use argent::upgrade::interface::{
+    use orbis::account::interface::SRC5_ACCOUNT_INTERFACE_ID;
+    use orbis::introspection::interface::{ISRC5LibraryDispatcher, ISRC5DispatcherTrait};
+    use orbis::upgrade::interface::{
         IUpgradableCallback, IUpgradeable, IUpgradableCallbackLibraryDispatcher, IUpgradableCallbackDispatcherTrait
     };
-    use argent::utils::asserts::assert_only_self;
+    use orbis::utils::asserts::assert_only_self;
     use starknet::{ClassHash, syscalls::replace_class_syscall};
 
     #[storage]

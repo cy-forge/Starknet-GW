@@ -1,23 +1,23 @@
 #[starknet::contract(account)]
 mod ArgentAccount {
-    use argent::account::interface::{IAccount, IArgentAccount, IArgentUserAccount, IDeprecatedArgentAccount, Version};
-    use argent::introspection::src5::src5_component;
-    use argent::outside_execution::{
+    use orbis::account::interface::{IAccount, IArgentAccount, IArgentUserAccount, IDeprecatedArgentAccount, Version};
+    use orbis::introspection::src5::src5_component;
+    use orbis::outside_execution::{
         outside_execution::outside_execution_component, interface::{IOutsideExecutionCallback}
     };
-    use argent::recovery::interface::{LegacyEscape, LegacyEscapeType, EscapeStatus};
-    use argent::session::{
+    use orbis::recovery::interface::{LegacyEscape, LegacyEscapeType, EscapeStatus};
+    use orbis::session::{
         interface::{SessionToken, ISessionCallback},
         session::{session_component::{Internal, InternalTrait}, session_component,}
     };
-    use argent::signer::{
+    use orbis::signer::{
         signer_signature::{
             Signer, SignerStorageValue, SignerType, StarknetSigner, StarknetSignature, SignerTrait, SignerStorageTrait,
             SignerSignature, SignerSignatureTrait, starknet_signer_from_pubkey
         }
     };
-    use argent::upgrade::{upgrade::upgrade_component, interface::{IUpgradableCallback, IUpgradableCallbackOld}};
-    use argent::utils::{
+    use orbis::upgrade::{upgrade::upgrade_component, interface::{IUpgradableCallback, IUpgradableCallbackOld}};
+    use orbis::utils::{
         asserts::{assert_no_self_call, assert_only_self, assert_only_protocol}, calls::execute_multicall,
         serialization::full_deserialize,
         transaction_version::{

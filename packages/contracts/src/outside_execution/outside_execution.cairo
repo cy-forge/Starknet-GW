@@ -2,7 +2,7 @@
 // This is achieved by adding outside_execution::ERC165_OUTSIDE_EXECUTION_INTERFACE_ID
 #[starknet::component]
 mod outside_execution_component {
-    use argent::outside_execution::{
+    use orbis::outside_execution::{
         outside_execution_hash::{OffChainMessageOutsideExecutionRev0, OffChainMessageOutsideExecutionRev1},
         interface::{OutsideExecution, IOutsideExecutionCallback, IOutsideExecution}
     };

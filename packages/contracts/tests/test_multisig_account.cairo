@@ -1,14 +1,14 @@
-use argent::multisig::multisig::{multisig_component};
-use argent::presets::multisig_account::ArgentMultisigAccount;
-use argent::signer::signer_signature::{
-    Signer, StarknetSigner, SignerSignature, SignerTrait, starknet_signer_from_pubkey
+use orbis::multisig::multisig::{multisig_component};
+use orbis::presets::multisig_account::ArgentMultisigAccount;
+use orbis::signer::signer_signature::{
+    Signer, StarknetSigner, SignerSignature, SignerTrait, starknet_signer_from_pubkey,
 };
-use argent::signer_storage::signer_list::{signer_list_component};
+use orbis::signer_storage::signer_list::{signer_list_component};
 use snforge_std::{ContractClassTrait, spy_events, SpyOn, EventSpy, EventFetcher, EventAssertions};
 use super::setup::constants::{MULTISIG_OWNER};
 use super::setup::multisig_test_setup::{
     initialize_multisig, ITestArgentMultisigDispatcherTrait, initialize_multisig_with,
-    initialize_multisig_with_one_signer, declare_multisig
+    initialize_multisig_with_one_signer, declare_multisig,
 };
 
 #[test]
@@ -68,7 +68,9 @@ fn change_threshold() {
     multisig.change_threshold(2);
     assert_eq!(multisig.get_threshold(), 2, "new threshold not set");
 
-    let event = multisig_component::Event::ThresholdUpdated(multisig_component::ThresholdUpdated { new_threshold: 2 });
+    let event = multisig_component::Event::ThresholdUpdated(
+        multisig_component::ThresholdUpdated { new_threshold: 2 },
+    );
     spy.assert_emitted(@array![(multisig.contract_address, event)]);
 
     assert_eq!(spy.events.len(), 0, "excess events");

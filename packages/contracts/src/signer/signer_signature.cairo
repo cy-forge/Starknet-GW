@@ -1,6 +1,6 @@
-use argent::signer::eip191::is_valid_eip191_signature;
-use argent::signer::webauthn::{WebauthnSignature, get_webauthn_hash, verify_authenticator_flags};
-use argent::utils::hashing::poseidon_2;
+use orbis::signer::eip191::is_valid_eip191_signature;
+use orbis::signer::webauthn::{WebauthnSignature, get_webauthn_hash, verify_authenticator_flags};
+use orbis::utils::hashing::poseidon_2;
 use core::traits::TryInto;
 use ecdsa::check_ecdsa_signature;
 use hash::{HashStateExTrait, HashStateTrait};

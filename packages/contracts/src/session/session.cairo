@@ -3,13 +3,13 @@ mod session_component {
     use alexandria_merkle_tree::merkle_tree::{
         Hasher, MerkleTree, MerkleTreeImpl, poseidon::PoseidonHasherImpl, MerkleTreeTrait,
     };
-    use argent::account::interface::{IAccount, IArgentUserAccount};
-    use argent::session::{
+    use orbis::account::interface::{IAccount, IArgentUserAccount};
+    use orbis::session::{
         session_hash::{OffChainMessageHashSessionRev1, MerkleLeafHash},
         interface::{ISessionable, SessionToken, Session, ISessionCallback},
     };
-    use argent::signer::signer_signature::{SignerSignatureTrait, SignerTrait, SignerSignature};
-    use argent::utils::{asserts::{assert_no_self_call, assert_only_self}, serialization::full_deserialize};
+    use orbis::signer::signer_signature::{SignerSignatureTrait, SignerTrait, SignerSignature};
+    use orbis::utils::{asserts::{assert_no_self_call, assert_only_self}, serialization::full_deserialize};
     use hash::{HashStateExTrait, HashStateTrait};
     use poseidon::PoseidonTrait;
     use starknet::{account::Call, get_contract_address, VALIDATED, get_block_timestamp};

@@ -1,4 +1,4 @@
-use argent::utils::bytes::{
+use orbis::utils::bytes::{
     SpanU8TryIntoFelt252, SpanU8TryIntoU256, ByteArrayExt, u8s_to_u32s_pad_end, u32s_to_u8s, u256_to_u8s
 };
 

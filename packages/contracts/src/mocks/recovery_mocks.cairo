@@ -1,9 +1,9 @@
 /// @dev 🚨 This smart contract is a mock implementation and is not meant for actual deployment or use in any live environment. It is solely for testing, educational, or demonstration purposes. Any interactions with this contract will not have real-world consequences or effects on blockchain networks. Please refrain from relying on the functionality of this contract for any production. 🚨
 #[starknet::contract]
 mod ThresholdRecoveryMock {
-    use argent::multisig::multisig::multisig_component;
-    use argent::recovery::{threshold_recovery::threshold_recovery_component};
-    use argent::signer_storage::signer_list::signer_list_component;
+    use orbis::multisig::multisig::multisig_component;
+    use orbis::recovery::{threshold_recovery::threshold_recovery_component};
+    use orbis::signer_storage::signer_list::signer_list_component;
 
     component!(path: threshold_recovery_component, storage: escape, event: EscapeEvents);
     #[abi(embed_v0)]
@@ -45,10 +45,10 @@ mod ThresholdRecoveryMock {
 }
 #[starknet::contract]
 mod ExternalRecoveryMock {
-    use argent::external_recovery::{external_recovery::{external_recovery_component, IExternalRecoveryCallback}};
-    use argent::multisig::multisig::multisig_component;
-    use argent::signer_storage::signer_list::signer_list_component;
-    use argent::utils::calls::execute_multicall;
+    use orbis::external_recovery::{external_recovery::{external_recovery_component, IExternalRecoveryCallback}};
+    use orbis::multisig::multisig::multisig_component;
+    use orbis::signer_storage::signer_list::signer_list_component;
+    use orbis::utils::calls::execute_multicall;
     use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     component!(path: external_recovery_component, storage: escape, event: EscapeEvents);
     #[abi(embed_v0)]
