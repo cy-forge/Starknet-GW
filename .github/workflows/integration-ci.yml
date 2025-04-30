@@ -6,7 +6,7 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out main branch
+      - name: Check out master branch
         uses: actions/checkout@v3
 
       - name: Setup Scarb
@@ -29,7 +29,7 @@ jobs:
   gas-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out main branch
+      - name: Check out master branch
         uses: actions/checkout@v3
 
       - name: Setup Scarb
@@ -52,7 +52,7 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Check out main branch
+      - name: Step 1 - Check out master branch
         uses: actions/checkout@v3
 
       - name: Step 2 - Install project
@@ -66,7 +66,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Check out main branch
+      - name: Step 1 - Check out master branch
         uses: actions/checkout@v3
 
       - name: Step 2 - Install project
