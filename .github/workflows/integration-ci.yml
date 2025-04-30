@@ -1,0 +1,78 @@
+name: Integration CI
+
+on: push
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out master branch
+        uses: actions/checkout@v3
+
+      - name: Setup Scarb
+        uses: software-mansion/setup-scarb@v1.3.2
+          
+      - name: Install project
+        working-directory: ./packages/contracts
+        run: yarn install --frozen-lockfile
+
+      - name: Start devnet in background
+        working-directory: ./packages/contracts
+        run: |
+          scarb run start-devnet &
+          ./scripts/wait-devnet-ready.sh
+
+      - name: Run integration tests
+        working-directory: ./packages/contracts
+        run: scarb --release build && tsc && yarn mocha tests-integration/*.test.ts --forbid-only --forbid-pending
+
+  gas-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out master branch
+        uses: actions/checkout@v3
+
+      - name: Setup Scarb
+        uses: software-mansion/setup-scarb@v1.3.2
+          
+      - name: Install project
+        working-directory: ./packages/contracts
+        run: yarn install --frozen-lockfile
+
+      - name: Start devnet in background
+        working-directory: ./packages/contracts
+        run: |
+          scarb run start-devnet &
+          ./scripts/wait-devnet-ready.sh
+
+      - name: Gas report
+        working-directory: ./packages/contracts
+        run: scarb run profile --check
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Check out master branch
+        uses: actions/checkout@v3
+
+      - name: Step 2 - Install project
+        working-directory: ./packages/contracts
+        run: yarn install --frozen-lockfile
+
+      - name: Step 3 - Check correct formatting
+        working-directory: ./packages/contracts
+        run: yarn prettier --check .
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Check out master branch
+        uses: actions/checkout@v3
+
+      - name: Step 2 - Install project
+        working-directory: ./packages/contracts
+        run: yarn install --frozen-lockfile
+
+      - name: Step 3 - Check correct linting
+        working-directory: ./packages/contracts
+        run: yarn eslint .
