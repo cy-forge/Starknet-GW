@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -6,163 +6,162 @@
 
 /* Add your custom styles here, including styles declared in the base layer to give Tailwind v4 theme access to them */
 @theme inline {
-    --color-primary: var(--primary);
-    --color-grayish: #9DA3AC;
-    --color-tealish: #0EB094;
-    --color-primary-bluegreen: var(--primary-bluegreen);
-    --color-gray-green: var(--gray-green);
-    --color-primary-text: var(--primary-text);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) - 4px);
-    --radius-md: calc(var(--radius) - 2px);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) + 4px);
-    --font-bricolage: "Bricolage Grotesque", sans-serif;
+  --color-primary: var(--primary);
+  --color-grayish: #9da3ac;
+  --color-tealish: #0eb094;
+  --color-primary-bluegreen: var(--primary-bluegreen);
+  --color-gray-green: var(--gray-green);
+  --color-primary-text: var(--primary-text);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
 }
 
 @layer base {
+  /* Light Mode Colors */
+  :root {
+    --primary: #f7f7f7;
+    --primary-text: #1e1e1e;
+    --primary-bluegreen: #51a8f0;
+    --gray-green: #f4f6fa;
+    --radius: 0.625rem;
+    --background: #ffffff;
+    --foreground: #1e1e1e;
+    --card: #ffffff;
+    --card-foreground: #1e1e1e;
+    --popover: #ffffff;
+    --popover-foreground: #1e1e1e;
+    --primary-foreground: #f7f7f7;
+    --secondary: #e5e7eb;
+    --secondary-foreground: #111827;
+    --muted: #f3f4f6;
+    --muted-foreground: #6b7280;
+    --accent: #e5e7eb;
+    --accent-foreground: #111827;
+    --destructive: #ff8059;
+    --border: #d1d5db;
+    --input: #d1d5db;
+    --ring: #6366f1;
+    --chart-1: #10b981;
+    --chart-2: #3b82f6;
+    --chart-3: #6366f1;
+    --chart-4: #f59e0b;
+    --chart-5: #ef4444;
+    --sidebar: #f9fafb;
+    --sidebar-foreground: #9da3ac;
+    --sidebar-primary: #1e1e1e;
+    --sidebar-primary-foreground: #f9fafb;
+    --sidebar-accent: #e5e7eb;
+    --sidebar-accent-foreground: #1e1e1e;
+    --sidebar-border: #d9d9d9;
+    --sidebar-ring: #6366f1;
+    color: var(--primary-text);
+    transition: color 0.2s ease-in 200ms;
+  }
 
-    /* Light Mode Colors */
-    :root {
-        --primary: #F7F7F7;
-        --primary-text: #1E1E1E;
-        --primary-bluegreen: #51A8F0;
-        --gray-green: #F4F6FA;
-        --radius: 0.625rem;
-        --background: #FFFFFF;
-        --foreground: #1E1E1E;
-        --card: #FFFFFF;
-        --card-foreground: #1E1E1E;
-        --popover: #FFFFFF;
-        --popover-foreground: #1E1E1E;
-        --primary-foreground: #F7F7F7;
-        --secondary: #E5E7EB;
-        --secondary-foreground: #111827;
-        --muted: #F3F4F6;
-        --muted-foreground: #6B7280;
-        --accent: #E5E7EB;
-        --accent-foreground: #111827;
-        --destructive: #FF8059;
-        --border: #D1D5DB;
-        --input: #D1D5DB;
-        --ring: #6366F1;
-        --chart-1: #10B981;
-        --chart-2: #3B82F6;
-        --chart-3: #6366F1;
-        --chart-4: #F59E0B;
-        --chart-5: #EF4444;
-        --sidebar: #F9FAFB;
-        --sidebar-foreground: #9DA3AC;
-        --sidebar-primary: #1E1E1E;
-        --sidebar-primary-foreground: #F9FAFB;
-        --sidebar-accent: #E5E7EB;
-        --sidebar-accent-foreground: #1E1E1E;
-        --sidebar-border: transparent;
-        --sidebar-ring: #6366F1;
-        color: var(--primary-text);
-        transition: color 0.2s ease-in 200ms;
-    }
+  /* Dark Mode Colors */
+  .dark {
+    --primary: #001413;
+    --primary-text: #f4f6fa;
+    --primary-bluegreen: #0eb094;
+    --gray-green: #022d28;
+    --background: #0f172a;
+    --foreground: #f4f6fa;
+    --card: #001413;
+    --card-foreground: #f4f6fa;
+    --popover: #1e293b;
+    --popover-foreground: #f4f6fa;
+    --primary-foreground: #1e293b;
+    --secondary: #334155;
+    --secondary-foreground: #f4f6fa;
+    --muted: #475569;
+    --muted-foreground: #cbd5e1;
+    --accent: #334155;
+    --accent-foreground: #f4f6fa;
+    --border: #475569;
+    --input: #475569;
+    --ring: #6366f1;
+    --chart-1: #8b5cf6;
+    --chart-2: #06b6d4;
+    --chart-3: #facc15;
+    --chart-4: #f97316;
+    --chart-5: #f43f5e;
+    --sidebar: #1e293b;
+    --sidebar-foreground: #5f6c6b;
+    --sidebar-primary: #0eb094;
+    --sidebar-primary-foreground: #f4f6fa;
+    --sidebar-accent: #334155;
+    --sidebar-accent-foreground: #f4f6fa;
+    --sidebar-border: #314140;
+    --sidebar-ring: #6366f1;
+  }
 
-    /* Dark Mode Colors */
-    .dark {
-        --primary: #001413;
-        --primary-text: #F4F6FA;
-        --primary-bluegreen: #0EB094;
-        --gray-green: #022D28;
-        --background: #0F172A;
-        --foreground: #F4F6FA;
-        --card: #001413;
-        --card-foreground: #F4F6FA;
-        --popover: #1E293B;
-        --popover-foreground: #F4F6FA;
-        --primary-foreground: #1E293B;
-        --secondary: #334155;
-        --secondary-foreground: #F4F6FA;
-        --muted: #475569;
-        --muted-foreground: #CBD5E1;
-        --accent: #334155;
-        --accent-foreground: #F4F6FA;
-        --border: #475569;
-        --input: #475569;
-        --ring: #6366F1;
-        --chart-1: #8B5CF6;
-        --chart-2: #06B6D4;
-        --chart-3: #FACC15;
-        --chart-4: #F97316;
-        --chart-5: #F43F5E;
-        --sidebar: #1E293B;
-        --sidebar-foreground: #5F6C6B;
-        --sidebar-primary: #0EB094;
-        --sidebar-primary-foreground: #F4F6FA;
-        --sidebar-accent: #334155;
-        --sidebar-accent-foreground: #F4F6FA;
-        --sidebar-border: #314140;
-        --sidebar-ring: #6366F1;
-    }
+  * {
+    @apply border-border outline-ring/50 font-bricolage;
+  }
 
-    * {
-        @apply border-border outline-ring/50 font-bricolage;
-    }
+  body {
+    @apply bg-primary text-primary-text;
+  }
 
-    body {
-        @apply bg-primary text-primary-text;
-    }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }
 
-.discoverSwiper .swiper-wrapper{
-    margin-bottom: 50px;
+.discoverSwiper .swiper-wrapper {
+  margin-bottom: 50px;
 }
 .discoverSwiper .swiper-pagination-bullet-active {
-    background: #2D2D2D;
-    width: 30px;
-    border-radius: 8px;
+  background: #2d2d2d;
+  width: 30px;
+  border-radius: 8px;
 }
 @media (prefers-color-scheme: dark) {
-    .discoverSwiper .swiper-pagination-bullet-active {
-      background: #0EB094;
-    }
-    .discoverSwiper .swiper-pagination-bullet {
-        background: #022D28;
-    }
+  .discoverSwiper .swiper-pagination-bullet-active {
+    background: #0eb094;
+  }
+  .discoverSwiper .swiper-pagination-bullet {
+    background: #022d28;
+  }
 }

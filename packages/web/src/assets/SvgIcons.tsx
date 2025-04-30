@@ -1,5 +1,5 @@
 export const SvgIcons = {
-  'arrow-right': () => (
+  "arrow-right": () => (
     <svg
       width="17"
       height="17"
@@ -279,13 +279,13 @@ export const SvgIcons = {
     >
       <path
         d="M10.9995 2.17747C11.5624 2.16947 13.4268 1.78219 13.822 2.17747C14.2173 2.57275 13.83 4.43706 13.822 5M13.6702 2.32731L9.00098 6.9974"
-        stroke={'currentColor'}
+        stroke={"currentColor"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2.17747 10.9997C2.16947 11.5626 1.78219 13.427 2.17747 13.8222C2.57275 14.2175 4.43706 13.8302 5 13.8222M7.00123 8.99805L2.33206 13.6681"
-        stroke={'currentColor'}
+        stroke={"currentColor"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -349,6 +349,20 @@ export const SvgIcons = {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  twitterLogo: () => (
+    <svg
+      width={16}
+      height={15}
+      viewBox="0 0 16 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.5944 0.5H15.0361L9.70281 6.44222L16 14.5H11.0522L7.19679 9.61556L2.76305 14.5H0.321285L6.04016 8.15333L0 0.5H5.07631L8.57831 4.98L12.5944 0.5ZM11.7269 13.0689H13.0763L4.33735 1.83778H2.85944L11.7269 13.0689Z"
+        fill="currentColor"
       />
     </svg>
   ),
