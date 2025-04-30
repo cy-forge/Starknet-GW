@@ -154,6 +154,10 @@
     .shadow-text-xp {
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
     }
+
+    .shadow-funding {
+        box-shadow: 0px 0px 4px -1px #000000 inset;
+      }
   }
 
 .discoverSwiper .swiper-wrapper{
