@@ -4,6 +4,8 @@ import SuperDuper from "@/components/dashboard/SuperDuper";
 import { Switch } from "@/components/ui/switch";
 import { setupThemeToggle } from "@/lib/themeToggle";
 import { Link } from "react-router";
+import { XpWeeklyRecap } from '@/components/dashboard/XpWeeklyRecap';
+
 
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 
@@ -64,6 +66,11 @@ const HomePage = () => {
       </div>
 
       <SuperDuper />
+
+      <div >
+        <XpWeeklyRecap/>
+      </div>
+
     </div>
   );
 };

@@ -352,4 +352,31 @@ export const SvgIcons = {
       />
     </svg>
   ),
+  polygon: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="51"
+      fill="none"
+      viewBox="0 0 45 51"
+    >
+      <path
+        fill="url(#paint0_linear_423_5210)"
+        d="m22.5 0 22.084 12.75v25.5L22.5 51 .416 38.25v-25.5z"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_423_5210"
+          x1="22.5"
+          x2="22.5"
+          y1="0"
+          y2="51"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#656565"></stop>
+          <stop offset="1" stopColor="#9F9F9F"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
 };
