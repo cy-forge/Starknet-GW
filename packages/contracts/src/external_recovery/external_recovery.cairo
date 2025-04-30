@@ -14,6 +14,7 @@ trait IExternalRecoveryCallback<TContractState> {
 /// @dev The recovery can be canceled by the authorized signers
 #[starknet::component]
 mod external_recovery_component {
+    use openzeppelin::security::reentrancyguard::{ReentrancyGuardComponent, ReentrancyGuardComponent::InternalImpl};
     use orbis::external_recovery::interface::{
         IExternalRecovery, EscapeCall, Escape, EscapeTriggered, EscapeExecuted, EscapeCanceled,
     };
@@ -23,7 +24,6 @@ mod external_recovery_component {
     use orbis::signer_storage::signer_list::{signer_list_component, signer_list_component::{SignerListInternalImpl}};
     use orbis::utils::asserts::assert_only_self;
     use orbis::utils::serialization::serialize;
-    use openzeppelin::security::reentrancyguard::{ReentrancyGuardComponent, ReentrancyGuardComponent::InternalImpl};
     use starknet::{
         get_block_timestamp, get_contract_address, get_caller_address, ContractAddress, account::Call,
         contract_address::contract_address_const

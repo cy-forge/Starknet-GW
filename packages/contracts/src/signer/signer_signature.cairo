@@ -1,9 +1,9 @@
-use orbis::signer::eip191::is_valid_eip191_signature;
-use orbis::signer::webauthn::{WebauthnSignature, get_webauthn_hash, verify_authenticator_flags};
-use orbis::utils::hashing::poseidon_2;
 use core::traits::TryInto;
 use ecdsa::check_ecdsa_signature;
 use hash::{HashStateExTrait, HashStateTrait};
+use orbis::signer::eip191::is_valid_eip191_signature;
+use orbis::signer::webauthn::{WebauthnSignature, get_webauthn_hash, verify_authenticator_flags};
+use orbis::utils::hashing::poseidon_2;
 use poseidon::{hades_permutation, PoseidonTrait};
 use starknet::SyscallResultTrait;
 use starknet::secp256_trait::{

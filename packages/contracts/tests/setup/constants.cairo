@@ -1,8 +1,8 @@
+use ecdsa::check_ecdsa_signature;
+use hash::{HashStateTrait};
 use orbis::signer::signer_signature::{
     Secp256Signature, SignerTrait, StarknetSigner, StarknetSignature, starknet_signer_from_pubkey
 };
-use ecdsa::check_ecdsa_signature;
-use hash::{HashStateTrait};
 use pedersen::{PedersenTrait};
 use snforge_std::signature::{
     KeyPair, KeyPairTrait, stark_curve::{StarkCurveKeyPairImpl, StarkCurveSignerImpl, StarkCurveVerifierImpl},

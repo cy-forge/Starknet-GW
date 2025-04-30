@@ -1,6 +1,5 @@
 use orbis::offchain_message::{
-    interface::{IStructHashRev1, StarknetDomain},
-    precalculated_hashing::{get_message_hash_rev_1_with_precalc},
+    interface::{IStructHashRev1, StarknetDomain}, precalculated_hashing::{get_message_hash_rev_1_with_precalc},
 };
 use orbis::outside_execution::outside_execution_hash::{
     MAINNET_FIRST_HADES_PERMUTATION as MAINNET_FIRST_HADES_PERMUTATION_OE,
@@ -19,10 +18,7 @@ use super::setup::utils::set_chain_id_foundry;
 #[test]
 fn session_precalculated_hash_sepolia() {
     let domain = StarknetDomain {
-        name: 'SessionAccount.session',
-        version: '1',
-        chain_id: get_tx_info().unbox().chain_id,
-        revision: 1,
+        name: 'SessionAccount.session', version: '1', chain_id: get_tx_info().unbox().chain_id, revision: 1,
     };
     let domain_hash = domain.get_struct_hash_rev_1();
     assert_eq!(
@@ -41,10 +37,7 @@ fn session_precalculated_hash_sepolia() {
 fn session_precalculated_hash_mainnet() {
     set_chain_id_foundry('SN_MAIN');
     let domain = StarknetDomain {
-        name: 'SessionAccount.session',
-        version: '1',
-        chain_id: get_tx_info().unbox().chain_id,
-        revision: 1,
+        name: 'SessionAccount.session', version: '1', chain_id: get_tx_info().unbox().chain_id, revision: 1,
     };
 
     let domain_hash = domain.get_struct_hash_rev_1();
@@ -63,10 +56,7 @@ fn session_precalculated_hash_mainnet() {
 #[test]
 fn outside_execution_precalculated_hash_sepolia() {
     let domain = StarknetDomain {
-        name: 'Account.execute_from_outside',
-        version: 2,
-        chain_id: get_tx_info().unbox().chain_id,
-        revision: 1,
+        name: 'Account.execute_from_outside', version: 2, chain_id: get_tx_info().unbox().chain_id, revision: 1,
     };
     let domain_hash = domain.get_struct_hash_rev_1();
     assert_eq!(
@@ -85,10 +75,7 @@ fn outside_execution_precalculated_hash_sepolia() {
 fn outside_execution_precalculated_hash_mainnet() {
     set_chain_id_foundry('SN_MAIN');
     let domain = StarknetDomain {
-        name: 'Account.execute_from_outside',
-        version: 2,
-        chain_id: get_tx_info().unbox().chain_id,
-        revision: 1,
+        name: 'Account.execute_from_outside', version: 2, chain_id: get_tx_info().unbox().chain_id, revision: 1,
     };
     let domain_hash = domain.get_struct_hash_rev_1();
     assert_eq!(

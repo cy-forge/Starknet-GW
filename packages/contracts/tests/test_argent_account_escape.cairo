@@ -8,9 +8,7 @@ use super::setup::account_test_setup::{ITestArgentAccountDispatcherTrait, initia
 fn set_escape_security_period() {
     let account = initialize_account();
     let default_escape_security_period = account.get_escape_security_period();
-    assert_eq!(
-        default_escape_security_period, consteval_int!(7 * 24 * 60 * 60), "Default value incorrect",
-    );
+    assert_eq!(default_escape_security_period, consteval_int!(7 * 24 * 60 * 60), "Default value incorrect",);
 
     let (_, status) = account.get_escape_and_status();
     assert_eq!(status, EscapeStatus::None, "Should be EscapeStatus::None");

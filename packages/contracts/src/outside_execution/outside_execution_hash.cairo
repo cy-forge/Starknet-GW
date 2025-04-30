@@ -1,3 +1,4 @@
+use hash::{HashStateTrait, HashStateExTrait};
 use orbis::offchain_message::{
     interface::{
         StarkNetDomain, StarknetDomain, StructHashStarkNetDomain, IOffChainMessageHashRev0, IStructHashRev0,
@@ -6,7 +7,6 @@ use orbis::offchain_message::{
     precalculated_hashing::get_message_hash_rev_1_with_precalc
 };
 use orbis::outside_execution::interface::{OutsideExecution};
-use hash::{HashStateTrait, HashStateExTrait};
 use pedersen::PedersenTrait;
 use poseidon::{poseidon_hash_span, hades_permutation, HashState};
 use starknet::{get_tx_info, get_contract_address, account::Call};

@@ -1,5 +1,7 @@
 #[starknet::contract(account)]
 mod ArgentAccount {
+    use hash::HashStateTrait;
+    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use orbis::account::interface::{IAccount, IArgentAccount, IArgentUserAccount, IDeprecatedArgentAccount, Version};
     use orbis::introspection::src5::src5_component;
     use orbis::outside_execution::{
@@ -25,8 +27,6 @@ mod ArgentAccount {
             assert_correct_deploy_account_version, DA_MODE_L1, is_estimate_transaction
         }
     };
-    use hash::HashStateTrait;
-    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use pedersen::PedersenTrait;
     use starknet::{
         ContractAddress, ClassHash, get_block_timestamp, get_contract_address, VALIDATED, replace_class_syscall,

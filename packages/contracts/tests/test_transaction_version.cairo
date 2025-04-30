@@ -1,6 +1,5 @@
 use orbis::utils::transaction_version::{
-    assert_correct_invoke_version, assert_correct_deploy_account_version,
-    assert_correct_declare_version,
+    assert_correct_invoke_version, assert_correct_deploy_account_version, assert_correct_declare_version,
 };
 
 #[test]

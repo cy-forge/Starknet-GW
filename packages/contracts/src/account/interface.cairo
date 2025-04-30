@@ -2,8 +2,7 @@ use orbis::recovery::interface::{LegacyEscape, EscapeStatus};
 use orbis::signer::signer_signature::{Signer, SignerType, SignerSignature};
 use starknet::account::Call;
 
-const SRC5_ACCOUNT_INTERFACE_ID: felt252 =
-    0x2ceccef7f994940b3962a6c67e0ba4fcd37df7d131417c604f91e03caecc1cd;
+const SRC5_ACCOUNT_INTERFACE_ID: felt252 = 0x2ceccef7f994940b3962a6c67e0ba4fcd37df7d131417c604f91e03caecc1cd;
 const SRC5_ACCOUNT_INTERFACE_ID_OLD_1: felt252 = 0xa66bd575;
 const SRC5_ACCOUNT_INTERFACE_ID_OLD_2: felt252 = 0x3943f10f;
 
@@ -27,9 +26,7 @@ trait IAccount<TContractState> {
     /// @param signature The signature to validate
     /// @return The shortstring 'VALID' when the signature is valid, 0 if the signature doesn't
     /// match the hash @dev it can also panic if the signature is not in a valid format
-    fn is_valid_signature(
-        self: @TContractState, hash: felt252, signature: Array<felt252>,
-    ) -> felt252;
+    fn is_valid_signature(self: @TContractState, hash: felt252, signature: Array<felt252>,) -> felt252;
 }
 
 #[starknet::interface]
@@ -163,7 +160,5 @@ trait IDeprecatedArgentAccount<TContractState> {
     fn getName(self: @TContractState) -> felt252;
     /// For compatibility reasons this function returns 1 when the signature is valid, and panics
     /// otherwise
-    fn isValidSignature(
-        self: @TContractState, hash: felt252, signatures: Array<felt252>,
-    ) -> felt252;
+    fn isValidSignature(self: @TContractState, hash: felt252, signatures: Array<felt252>,) -> felt252;
 }

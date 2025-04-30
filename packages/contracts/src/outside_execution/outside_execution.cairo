@@ -2,12 +2,12 @@
 // This is achieved by adding outside_execution::ERC165_OUTSIDE_EXECUTION_INTERFACE_ID
 #[starknet::component]
 mod outside_execution_component {
+    use hash::{HashStateTrait, HashStateExTrait};
+    use openzeppelin::security::reentrancyguard::{ReentrancyGuardComponent, ReentrancyGuardComponent::InternalImpl};
     use orbis::outside_execution::{
         outside_execution_hash::{OffChainMessageOutsideExecutionRev0, OffChainMessageOutsideExecutionRev1},
         interface::{OutsideExecution, IOutsideExecutionCallback, IOutsideExecution}
     };
-    use hash::{HashStateTrait, HashStateExTrait};
-    use openzeppelin::security::reentrancyguard::{ReentrancyGuardComponent, ReentrancyGuardComponent::InternalImpl};
     use pedersen::PedersenTrait;
     use starknet::{get_caller_address, get_contract_address, get_block_timestamp, get_tx_info, account::Call};
 

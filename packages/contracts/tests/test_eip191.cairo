@@ -1,7 +1,5 @@
 use orbis::signer::eip191::{calculate_eip191_hash, is_valid_eip191_signature};
-use orbis::signer::signer_signature::{
-    SignerSignature, SignerSignatureTrait, Eip191Signer, Secp256Signature,
-};
+use orbis::signer::signer_signature::{SignerSignature, SignerSignatureTrait, Eip191Signer, Secp256Signature,};
 use super::setup::constants::{tx_hash};
 
 const eth_address: felt252 = 0x3da5e1F7B6D63E9982A6c26D8eCFd8219654E087;
@@ -11,11 +9,7 @@ const sig_s: u256 = 0x58cb979aaac276bc59f2858b3dc6cdd1e31b401434bfc12fc0ea4b42c8
 #[test]
 fn test_eip_191_hashing() {
     let hash_result = calculate_eip191_hash(tx_hash);
-    assert_eq!(
-        hash_result,
-        48405440187118761992760719389369972157723609501777497852552048540887957431744,
-        "invalid",
-    );
+    assert_eq!(hash_result, 48405440187118761992760719389369972157723609501777497852552048540887957431744, "invalid",);
 }
 
 #[test]

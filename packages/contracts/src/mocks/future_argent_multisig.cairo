@@ -1,6 +1,8 @@
 /// @dev 🚨 This smart contract is a mock implementation and is not meant for actual deployment or use in any live environment. It is solely for testing, educational, or demonstration purposes. Any interactions with this contract will not have real-world consequences or effects on blockchain networks. Please refrain from relying on the functionality of this contract for any production. 🚨
 #[starknet::contract(account)]
 mod MockFutureArgentMultisig {
+    use core::array::ArrayTrait;
+    use core::result::ResultTrait;
     use orbis::account::interface::{
         IAccount, IArgentAccount, IArgentAccountDispatcher, IArgentAccountDispatcherTrait, Version
     };
@@ -17,8 +19,6 @@ mod MockFutureArgentMultisig {
         asserts::{assert_no_self_call, assert_only_protocol, assert_only_self,}, calls::execute_multicall,
         serialization::full_deserialize,
     };
-    use core::array::ArrayTrait;
-    use core::result::ResultTrait;
     use starknet::{get_tx_info, get_contract_address, VALIDATED, ClassHash, account::Call};
 
     const NAME: felt252 = 'ArgentMultisig';

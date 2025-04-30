@@ -18,6 +18,7 @@ trait IThresholdRecoveryInternal<TContractState> {
 /// The recovery can be canceled by threshold signers. 
 #[starknet::component]
 mod threshold_recovery_component {
+    use core::array::ArrayTrait;
     use orbis::recovery::interface::{
         Escape, EscapeEnabled, EscapeStatus, IRecovery, EscapeExecuted, EscapeTriggered, EscapeCanceled
     };
@@ -28,7 +29,6 @@ mod threshold_recovery_component {
         signer_list_component::{SignerListInternalImpl, OwnerAddedGuid, OwnerRemovedGuid, SignerLinked}
     };
     use orbis::utils::asserts::assert_only_self;
-    use core::array::ArrayTrait;
     use starknet::{get_block_timestamp, get_contract_address, ContractAddress, account::Call};
     use super::{IThresholdRecoveryInternal, IToggleThresholdRecovery};
 

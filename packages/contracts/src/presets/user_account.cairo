@@ -1,6 +1,7 @@
 /// @dev 🚨 Attention: This smart contract has not undergone an audit and is not intended for production use. Use at your own risk. Please exercise caution and conduct your own due diligence before interacting with this contract. 🚨
 #[starknet::contract(account)]
 mod ArgentUserAccount {
+    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use orbis::account::interface::{IAccount, IArgentAccount, Version};
     use orbis::introspection::src5::src5_component;
     use orbis::multisig::{multisig::{multisig_component, multisig_component::MultisigInternalImpl}};
@@ -19,7 +20,6 @@ mod ArgentUserAccount {
         serialization::full_deserialize,
         transaction_version::{assert_correct_invoke_version, assert_correct_deploy_account_version},
     };
-    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use starknet::{get_tx_info, get_contract_address, get_execution_info, VALIDATED, ClassHash, account::Call};
 
     const NAME: felt252 = 'ArgentAccount';

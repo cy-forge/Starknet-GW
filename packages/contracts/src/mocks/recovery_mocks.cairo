@@ -45,11 +45,11 @@ mod ThresholdRecoveryMock {
 }
 #[starknet::contract]
 mod ExternalRecoveryMock {
+    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use orbis::external_recovery::{external_recovery::{external_recovery_component, IExternalRecoveryCallback}};
     use orbis::multisig::multisig::multisig_component;
     use orbis::signer_storage::signer_list::signer_list_component;
     use orbis::utils::calls::execute_multicall;
-    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     component!(path: external_recovery_component, storage: escape, event: EscapeEvents);
     #[abi(embed_v0)]
     impl ExternalRecovery = external_recovery_component::ExternalRecoveryImpl<ContractState>;

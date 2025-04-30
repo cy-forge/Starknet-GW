@@ -1,5 +1,6 @@
 #[starknet::contract(account)]
 mod ArgentMultisigAccount {
+    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use orbis::account::interface::{IAccount, IArgentAccount, Version};
     use orbis::external_recovery::{external_recovery::{external_recovery_component, IExternalRecoveryCallback}};
     use orbis::introspection::src5::src5_component;
@@ -15,7 +16,6 @@ mod ArgentMultisigAccount {
         serialization::full_deserialize,
         transaction_version::{assert_correct_invoke_version, assert_correct_deploy_account_version},
     };
-    use openzeppelin::security::reentrancyguard::ReentrancyGuardComponent;
     use starknet::{get_tx_info, get_execution_info, get_contract_address, VALIDATED, account::Call, ClassHash};
 
     const NAME: felt252 = 'ArgentMultisig';

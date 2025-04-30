@@ -9,6 +9,9 @@ use orbis::signer::{
 
 #[starknet::contract(account)]
 mod MockFutureArgentAccount {
+    use core::option::OptionTrait;
+    use core::traits::TryInto;
+    use hash::HashStateTrait;
     use orbis::account::interface::{IAccount, IArgentAccount, Version};
     use orbis::introspection::src5::src5_component;
 
@@ -22,9 +25,6 @@ mod MockFutureArgentAccount {
     use orbis::utils::{
         asserts::{assert_no_self_call, assert_only_self}, calls::execute_multicall, serialization::full_deserialize,
     };
-    use core::option::OptionTrait;
-    use core::traits::TryInto;
-    use hash::HashStateTrait;
     use pedersen::PedersenTrait;
     use starknet::{
         ClassHash, get_block_timestamp, get_contract_address, VALIDATED, replace_class_syscall, account::Call,

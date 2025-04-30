@@ -1,6 +1,6 @@
-use orbis::signer::signer_signature::{Eip191Signer, is_valid_secp256k1_signature};
 use integer::{u128_byte_reverse, u256_safe_div_rem, u256_as_non_zero};
 use keccak::cairo_keccak;
+use orbis::signer::signer_signature::{Eip191Signer, is_valid_secp256k1_signature};
 use starknet::secp256_trait::{Signature as Secp256Signature};
 
 #[must_use]

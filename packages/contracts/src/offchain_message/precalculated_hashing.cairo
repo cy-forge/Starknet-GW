@@ -1,5 +1,5 @@
-use orbis::offchain_message::interface::IStructHashRev1;
 use hash::HashStateTrait;
+use orbis::offchain_message::interface::IStructHashRev1;
 use poseidon::{hades_permutation, HashState};
 use starknet::get_contract_address;
 

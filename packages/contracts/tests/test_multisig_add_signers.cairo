@@ -38,17 +38,13 @@ fn add_signers() {
         (
             multisig.contract_address,
             signer_list_component::Event::SignerLinked(
-                signer_list_component::SignerLinked {
-                    signer_guid: signer_1.into_guid(), signer: signer_1,
-                },
+                signer_list_component::SignerLinked { signer_guid: signer_1.into_guid(), signer: signer_1, },
             ),
         ),
     ];
     spy.assert_emitted(@events);
 
-    let event = multisig_component::Event::ThresholdUpdated(
-        multisig_component::ThresholdUpdated { new_threshold: 2 },
-    );
+    let event = multisig_component::Event::ThresholdUpdated(multisig_component::ThresholdUpdated { new_threshold: 2 },);
     spy.assert_emitted(@array![(multisig.contract_address, event)]);
 
     assert_eq!(spy.events.len(), 0, "excess events");

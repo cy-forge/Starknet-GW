@@ -20,11 +20,7 @@ fn valid_no_guardian() {
 #[test]
 fn valid_with_guardian() {
     let signatures = to_starknet_signatures(array![OWNER(), GUARDIAN()]);
-    assert_eq!(
-        initialize_account().is_valid_signature(tx_hash, signatures),
-        VALIDATED,
-        "invalid signature",
-    );
+    assert_eq!(initialize_account().is_valid_signature(tx_hash, signatures), VALIDATED, "invalid signature",);
 }
 
 #[test]
@@ -77,13 +73,9 @@ fn invalid_owner_with_guardian() {
 #[test]
 fn valid_owner_with_invalid_guardian() {
     let account = initialize_account();
-    let signatures = to_starknet_signer_signatures(
-        array![OWNER().pubkey, OWNER().sig.r, OWNER().sig.s, 1, 2, 3],
-    );
+    let signatures = to_starknet_signer_signatures(array![OWNER().pubkey, OWNER().sig.r, OWNER().sig.s, 1, 2, 3],);
     assert_eq!(account.is_valid_signature(tx_hash, signatures), 0, "invalid signature 1");
-    let signatures = to_starknet_signer_signatures(
-        array![OWNER().pubkey, OWNER().sig.r, OWNER().sig.s, 25, 42, 69],
-    );
+    let signatures = to_starknet_signer_signatures(array![OWNER().pubkey, OWNER().sig.r, OWNER().sig.s, 25, 42, 69],);
     assert_eq!(account.is_valid_signature(tx_hash, signatures), 0, "invalid signature 2");
     let signatures = to_starknet_signatures(array![OWNER(), WRONG_GUARDIAN()]);
     assert_eq!(account.is_valid_signature(tx_hash, signatures), 0, "invalid signature 3");

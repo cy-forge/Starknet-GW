@@ -3,6 +3,7 @@ mod session_component {
     use alexandria_merkle_tree::merkle_tree::{
         Hasher, MerkleTree, MerkleTreeImpl, poseidon::PoseidonHasherImpl, MerkleTreeTrait,
     };
+    use hash::{HashStateExTrait, HashStateTrait};
     use orbis::account::interface::{IAccount, IArgentUserAccount};
     use orbis::session::{
         session_hash::{OffChainMessageHashSessionRev1, MerkleLeafHash},
@@ -10,7 +11,6 @@ mod session_component {
     };
     use orbis::signer::signer_signature::{SignerSignatureTrait, SignerTrait, SignerSignature};
     use orbis::utils::{asserts::{assert_no_self_call, assert_only_self}, serialization::full_deserialize};
-    use hash::{HashStateExTrait, HashStateTrait};
     use poseidon::PoseidonTrait;
     use starknet::{account::Call, get_contract_address, VALIDATED, get_block_timestamp};
 
