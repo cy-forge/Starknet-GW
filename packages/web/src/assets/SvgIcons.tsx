@@ -352,6 +352,78 @@ export const SvgIcons = {
       />
     </svg>
   ),
+  transfer: () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19 9H6.65856C5.65277 9 5.14987 9 5.02472 8.69134C4.89957 8.38268 5.25517 8.01942 5.96637 7.29289L8.21091 5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5 15H17.3414C18.3472 15 18.8501 15 18.9753 15.3087C19.1004 15.6173 18.7448 15.9806 18.0336 16.7071L15.7891 19"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  ),
+  wallet: () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 14C16 14.8284 16.6716 15.5 17.5 15.5C18.3284 15.5 19 14.8284 19 14C19 13.1716 18.3284 12.5 17.5 12.5C16.6716 12.5 16 13.1716 16 14Z"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+      <path
+        d="M10 7H16C18.8284 7 20.2426 7 21.1213 7.87868C22 8.75736 22 10.1716 22 13V15C22 17.8284 22 19.2426 21.1213 20.1213C20.2426 21 18.8284 21 16 21H10C6.22876 21 4.34315 21 3.17157 19.8284C2 18.6569 2 16.7712 2 13V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H14C14.93 3 15.395 3 15.7765 3.10222C16.8117 3.37962 17.6204 4.18827 17.8978 5.22354C18 5.60504 18 6.07003 18 7"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  ),
+  polygon: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="51"
+      fill="none"
+      viewBox="0 0 45 51"
+    >
+      <path
+        fill="url(#paint0_linear_423_5210)"
+        d="m22.5 0 22.084 12.75v25.5L22.5 51 .416 38.25v-25.5z"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_423_5210"
+          x1="22.5"
+          x2="22.5"
+          y1="0"
+          y2="51"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#656565"></stop>
+          <stop offset="1" stopColor="#9F9F9F"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
   twitterLogo: () => (
     <svg
       width={16}
