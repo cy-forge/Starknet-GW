@@ -377,6 +377,7 @@ export const SvgIcons = {
     </svg>
   ),
   wallet: () => (
+  twitterLogo: () => (
     <svg
       width="24"
       height="24"
