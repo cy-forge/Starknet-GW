@@ -1,5 +1,6 @@
 import { Account } from '@/components/dashboard/account';
 import { BronzeTier } from '@/components/dashboard/BronzeTier';
+import { XpWeeklyRecap } from '@/components/dashboard/XpWeeklyRecap';
 import { Switch } from '@/components/ui/switch';
 import { setupThemeToggle } from '@/lib/themeToggle';
 import { Link } from 'react-router';
@@ -60,6 +61,10 @@ const HomePage = () => {
           maxXp={1000}
           timeLeft={{ hours: 132, minutes: 48, seconds: 3 }}
         />
+      </div>
+
+      <div >
+        <XpWeeklyRecap/>
       </div>
     </div>
   );

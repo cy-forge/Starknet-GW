@@ -364,6 +364,31 @@ export const SvgIcons = {
         d="M12.5944 0.5H15.0361L9.70281 6.44222L16 14.5H11.0522L7.19679 9.61556L2.76305 14.5H0.321285L6.04016 8.15333L0 0.5H5.07631L8.57831 4.98L12.5944 0.5ZM11.7269 13.0689H13.0763L4.33735 1.83778H2.85944L11.7269 13.0689Z"
         fill="currentColor"
       />
+  polygon: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="51"
+      fill="none"
+      viewBox="0 0 45 51"
+    >
+      <path
+        fill="url(#paint0_linear_423_5210)"
+        d="m22.5 0 22.084 12.75v25.5L22.5 51 .416 38.25v-25.5z"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_423_5210"
+          x1="22.5"
+          x2="22.5"
+          y1="0"
+          y2="51"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#656565"></stop>
+          <stop offset="1" stopColor="#9F9F9F"></stop>
+        </linearGradient>
+      </defs>
     </svg>
   ),
 };

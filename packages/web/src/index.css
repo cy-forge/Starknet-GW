@@ -149,8 +149,14 @@
   }
 }
 
-.discoverSwiper .swiper-wrapper {
-  margin-bottom: 50px;
+@layer utilities {
+    .shadow-text-xp {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+.discoverSwiper .swiper-wrapper{
+    margin-bottom: 50px;
 }
 .discoverSwiper .swiper-pagination-bullet-active {
   background: #2d2d2d;
