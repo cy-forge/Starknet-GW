@@ -1,6 +1,6 @@
 import { Account } from "@/components/dashboard/account";
 import { BronzeTier } from "@/components/dashboard/BronzeTier";
-
+import SuperDuper from "@/components/dashboard/SuperDuper";
 import { FundingWarning } from "@/components/dashboard/funding";
 import { XpWeeklyRecap } from '@/components/dashboard/XpWeeklyRecap';
 import { Switch } from "@/components/ui/switch";
