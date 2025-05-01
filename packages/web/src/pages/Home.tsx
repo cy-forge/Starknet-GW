@@ -1,10 +1,14 @@
-import { Account } from '@/components/dashboard/account';
-import { BronzeTier } from '@/components/dashboard/BronzeTier';
+import { Account } from "@/components/dashboard/account";
+import { BronzeTier } from "@/components/dashboard/BronzeTier";
+import SuperDuper from "@/components/dashboard/SuperDuper";
+import { FundingWarning } from "@/components/dashboard/funding";
 import { XpWeeklyRecap } from '@/components/dashboard/XpWeeklyRecap';
+
 import { Switch } from '@/components/ui/switch';
 import { setupThemeToggle } from '@/lib/themeToggle';
 import { Link } from 'react-router';
 import BadgeDetails from '@/components/badge/badgeModal';
+
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 
 const HomePage = () => {
@@ -72,9 +76,22 @@ const HomePage = () => {
       </div>
 
 
+      <SuperDuper />
+
+
       <div >
         <XpWeeklyRecap/>
       </div>
+
+
+      
+      <div className="my-8">
+        <FundingWarning
+          title="This wallet can only be used within the abstract network"
+          desc="Do not send funds to this address on another chain, or they will be lost"
+        />
+      </div>
+
 
     </div>
   );
