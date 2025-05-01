@@ -6,7 +6,7 @@ import { Account } from "../dashboard/account";
 import { SidebarProvider, SidebarTrigger } from "../ui/sidebar";
 import { Switch } from "../ui/switch";
 import GWSidebar from "./SideBar";
-import RewardsModal from "../ui/rewards-modal";
+import TwitterLinkedModal from "../ui/twitter-linked-modal";
 
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 const DashboardLayout = () => {
@@ -14,7 +14,7 @@ const DashboardLayout = () => {
     <SidebarProvider>
       <div className="h-screen bg-primary p-4 md:p-10 lg:p-[3.125rem] flex w-full">
         <GWSidebar />
-        <RewardsModal />
+        <TwitterLinkedModal />
 
         <main className="flex-1 relative w-full overflow-auto no-scrollbar">
           <div className="absolute top-0 right-0 w-max flex gap-2 items-center">
