@@ -14,7 +14,7 @@ function TwitterLinkedModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>connnect twitter</Button>
+        <Button>connnect your twitter</Button>
       </DialogTrigger>
       <DialogPortal data-slot="dialog-portal">
         <DialogOverlay>
