@@ -3,10 +3,11 @@ import { BronzeTier } from "@/components/dashboard/BronzeTier";
 import SuperDuper from "@/components/dashboard/SuperDuper";
 import { FundingWarning } from "@/components/dashboard/funding";
 import { XpWeeklyRecap } from '@/components/dashboard/XpWeeklyRecap';
-import { Switch } from "@/components/ui/switch";
-import { setupThemeToggle } from "@/lib/themeToggle";
-import { Link } from "react-router";
 
+import { Switch } from '@/components/ui/switch';
+import { setupThemeToggle } from '@/lib/themeToggle';
+import { Link } from 'react-router';
+import BadgeDetails from '@/components/badge/badgeModal';
 
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 
@@ -53,8 +54,16 @@ const HomePage = () => {
         <li>
           <div className="text-primary-bluegreen hover:underline flex items-center">
             Account Modal <Account />
+           
           </div>
         </li>
+        <li>
+          <div className="text-primary-bluegreen hover:underline flex items-center">
+           Badge Modal <BadgeDetails />
+           
+          </div>
+        </li>
+       
       </ul>
       <div>
         <BronzeTier
@@ -66,11 +75,14 @@ const HomePage = () => {
         />
       </div>
 
+
       <SuperDuper />
+
 
       <div >
         <XpWeeklyRecap/>
       </div>
+
 
       
       <div className="my-8">
@@ -79,6 +91,7 @@ const HomePage = () => {
           desc="Do not send funds to this address on another chain, or they will be lost"
         />
       </div>
+
 
     </div>
   );
