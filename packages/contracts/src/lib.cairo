@@ -1,25 +1,86 @@
-fn main() -> u32 {
-    fib(16)
+mod upgrade {
+    mod interface;
+    mod upgrade;
 }
 
-fn fib(mut n: u32) -> u32 {
-    let mut a: u32 = 0;
-    let mut b: u32 = 1;
-    while n != 0 {
-        n = n - 1;
-        let temp = b;
-        b = a + b;
-        a = temp;
-    };
-    a
+mod account {
+    mod interface;
 }
 
-#[cfg(test)]
-mod tests {
-    use super::fib;
+mod introspection {
+    mod interface;
+    mod src5;
+}
 
-    #[test]
-    fn it_works() {
-        assert(fib(16) == 987, 'it works!');
-    }
+mod multisig {
+    mod interface;
+    mod multisig;
+}
+
+mod signer {
+    mod eip191;
+    mod signer_signature;
+    mod webauthn;
+}
+
+mod signer_storage {
+    mod interface;
+    mod signer_list;
+}
+
+mod outside_execution {
+    mod interface;
+    mod outside_execution;
+    mod outside_execution_hash;
+}
+
+mod recovery {
+    mod interface;
+    mod threshold_recovery;
+}
+
+mod external_recovery {
+    mod external_recovery;
+    mod interface;
+}
+
+mod presets {
+    mod argent_account;
+    mod multisig_account;
+    mod user_account;
+}
+
+mod utils {
+    mod array_ext;
+    mod array_store;
+    mod asserts;
+    mod bytes;
+    mod calls;
+    mod hashing;
+    mod multicall;
+    mod serialization;
+    mod transaction_version;
+}
+
+mod mocks {
+    mod future_argent_account;
+    mod future_argent_multisig;
+    mod mock_dapp;
+    mod mock_erc20;
+    mod multisig_mocks;
+    mod recovery_mocks;
+    mod signature_verifier;
+    mod signer_list_mocks;
+    mod src5_mocks;
+}
+
+mod session {
+    mod interface;
+    mod session;
+    mod session_hash;
+}
+
+mod offchain_message {
+    mod interface;
+    mod precalculated_hashing;
 }
