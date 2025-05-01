@@ -1,5 +1,5 @@
 export const SvgIcons = {
-  'arrow-right': () => (
+  "arrow-right": () => (
     <svg
       width="17"
       height="17"
@@ -279,13 +279,13 @@ export const SvgIcons = {
     >
       <path
         d="M10.9995 2.17747C11.5624 2.16947 13.4268 1.78219 13.822 2.17747C14.2173 2.57275 13.83 4.43706 13.822 5M13.6702 2.32731L9.00098 6.9974"
-        stroke={'currentColor'}
+        stroke={"currentColor"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2.17747 10.9997C2.16947 11.5626 1.78219 13.427 2.17747 13.8222C2.57275 14.2175 4.43706 13.8302 5 13.8222M7.00123 8.99805L2.33206 13.6681"
-        stroke={'currentColor'}
+        stroke={"currentColor"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -349,6 +349,92 @@ export const SvgIcons = {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  transfer: () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19 9H6.65856C5.65277 9 5.14987 9 5.02472 8.69134C4.89957 8.38268 5.25517 8.01942 5.96637 7.29289L8.21091 5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5 15H17.3414C18.3472 15 18.8501 15 18.9753 15.3087C19.1004 15.6173 18.7448 15.9806 18.0336 16.7071L15.7891 19"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  ),
+  wallet: () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 14C16 14.8284 16.6716 15.5 17.5 15.5C18.3284 15.5 19 14.8284 19 14C19 13.1716 18.3284 12.5 17.5 12.5C16.6716 12.5 16 13.1716 16 14Z"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+      <path
+        d="M10 7H16C18.8284 7 20.2426 7 21.1213 7.87868C22 8.75736 22 10.1716 22 13V15C22 17.8284 22 19.2426 21.1213 20.1213C20.2426 21 18.8284 21 16 21H10C6.22876 21 4.34315 21 3.17157 19.8284C2 18.6569 2 16.7712 2 13V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H14C14.93 3 15.395 3 15.7765 3.10222C16.8117 3.37962 17.6204 4.18827 17.8978 5.22354C18 5.60504 18 6.07003 18 7"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  ),
+  polygon: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="51"
+      fill="none"
+      viewBox="0 0 45 51"
+    >
+      <path
+        fill="url(#paint0_linear_423_5210)"
+        d="m22.5 0 22.084 12.75v25.5L22.5 51 .416 38.25v-25.5z"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_423_5210"
+          x1="22.5"
+          x2="22.5"
+          y1="0"
+          y2="51"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#656565"></stop>
+          <stop offset="1" stopColor="#9F9F9F"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
+  twitterLogo: () => (
+    <svg
+      width={16}
+      height={15}
+      viewBox="0 0 16 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.5944 0.5H15.0361L9.70281 6.44222L16 14.5H11.0522L7.19679 9.61556L2.76305 14.5H0.321285L6.04016 8.15333L0 0.5H5.07631L8.57831 4.98L12.5944 0.5ZM11.7269 13.0689H13.0763L4.33735 1.83778H2.85944L11.7269 13.0689Z"
+        fill="currentColor"
       />
     </svg>
   ),

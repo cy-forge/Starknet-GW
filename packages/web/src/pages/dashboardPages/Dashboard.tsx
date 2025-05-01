@@ -1,12 +1,39 @@
+'use client';
 import { SvgIcons } from '@/assets/SvgIcons';
 import { tokenColumns } from '@/components/dashboard/columns';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, EmptyCard } from '@/components/ui/card';
 import { DataTable } from '@/components/ui/data-table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ChooseFundingMethodModal from '@/components/dashboard/ChooseFundingMethodModal';
+import { useState } from 'react';
+import { FundingOption } from '@/lib/types';
 
+
+const fundingOptions: FundingOption[] = [
+  {
+    icon: SvgIcons['wallet'],
+    title: 'Buy with cash',
+    description: 'Card or bank transfer',
+  },
+  {
+    icon: SvgIcons['transfer'],
+    title: 'Deposit from Exchange',
+    description: 'Transfer from a centralized exchange',
+  },
+  {
+    icon: '/dashboardIcons/fe6ffa66f07e78eea2404700519443e9800b46e9.jpg',
+    title: 'Bridge from another chain',
+  },
+  {
+    icon: '/dashboardIcons/c2ab0992ab80f1a96d7e985b4fc6533462550d4f.png',
+    title: 'View your wallet address',
+  },
+]
 
 const DashboardPage = () => {
+  const [fundingMethodOpen, setFundingMethodOpen] = useState(false);
+  
   return (
     <section className="max-md:mt-16">
       <h1 className="text-2xl">Home Dashboard</h1>
@@ -32,7 +59,7 @@ const DashboardPage = () => {
             <section className="rounded-xl p-4 bg-gray-green dark:bg-transparent flex flex-col gap-6">
               <h2>Actions</h2>
               <div className="md:flex items-center gap-3 mt-auto flex-1 max-md:grid grid-cols-2">
-                <Button className="px-12 py-3 text-sm">
+                <Button onClick={() => setFundingMethodOpen(true)} className="px-12 py-3 text-sm">
                   <span>{SvgIcons['fund']()}</span>
                   <span>Fund</span>
                 </Button>
@@ -101,6 +128,12 @@ const DashboardPage = () => {
           </TabsContent>
         </Tabs>
       </div>
+      <ChooseFundingMethodModal 
+        isOpen={fundingMethodOpen}
+        setIsOpen={setFundingMethodOpen}
+        options={fundingOptions}
+        onSelect={(option)=>console.log({...option})}
+      />
     </section>
   );
 };
