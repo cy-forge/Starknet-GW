@@ -11,9 +11,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 if (!process.env.JWT_SECRET) {
-    console.error('❌ JWT_SECRET environment variable is not defined');
+    console.error(' JWT_SECRET environment variable is not defined');
     process.env.JWT_SECRET = 'test-secret-for-testing-only';
-    console.warn('⚠️ Using fallback test secret');
+    console.warn('⚠ Using fallback test secret');
     }
 
     const generateToken = (role: string = 'admin') => {
@@ -23,10 +23,10 @@ if (!process.env.JWT_SECRET) {
         process.env.JWT_SECRET!,
         { expiresIn: '1h' }
         );
-        console.log(`✅ Generated ${role} token successfully`);
+        console.log(` Generated ${role} token successfully`);
         return token;
     } catch (error) {
-        console.error('❌ Failed to generate token:', error);
+        console.error(' Failed to generate token:', error);
         throw error;
     }
 };
@@ -44,9 +44,9 @@ describe("Category API", () => {
     afterAll(async () => {
         try {
         await db.delete(categoriesTable);
-        console.log('✅ Cleaned up test data');
+        console.log(' Cleaned up test data');
         } catch (error) {
-        console.error('❌ Failed to clean up test data:', error);
+        console.error(' Failed to clean up test data:', error);
         }
     });
 
