@@ -38,4 +38,12 @@ export const rolesToUsersTable = pgTable('roles_users', {
     primaryKey({ columns: [t.roleId, t.userId] }),
 ]);
 
-  
+// categories Table
+export const categoriesTable = pgTable('categories', {
+    id: uuid('id').primaryKey().defaultRandom(),
+    name: varchar('name', { length: 255 }).notNull().unique(),
+    slug: varchar('slug', { length: 255 }).notNull().unique(),
+    status: varchar('status', { length: 50 }).notNull().default('active'),
+    createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+});
