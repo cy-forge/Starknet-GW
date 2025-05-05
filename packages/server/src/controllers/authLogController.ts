@@ -2,11 +2,14 @@ import { Hono } from "hono";
 import { lookup as geoipLookup } from "fast-geoip";
 import { isbot } from 'isbot';
 import { logAuthAttempt, getAuthLogs, getAuthLogById, deleteAuthLog, updateAuthLog, getAuthLogsByDate} from "../services/authLogService";
+import { rbacAdminMiddleware } from "../middlewares/rbacMiddleware";
+import { isAuthenticated } from "../middlewares/authMiddleware";
+
 
 
 const authLogController = new Hono();
 
-authLogController.post("/auth-log", async (c) => {
+authLogController.post("/auth-log", isAuthenticated, async (c) => {
     try {
         const { userId, browser, ipAddress, deviceType, deviceOS, date } = await c.req.json();
 
@@ -56,7 +59,7 @@ authLogController.post("/auth-log", async (c) => {
     }
 });
 
-authLogController.get("/auth-logs", async (c) => {
+authLogController.get("/auth-logs", rbacAdminMiddleware, async (c) => {
     try {
         const { userId, limit = 10, offset = 0 } = c.req.query();
 
@@ -74,7 +77,7 @@ authLogController.get("/auth-logs", async (c) => {
     }
 });
 
-authLogController.get("/auth-log/:logId", async (c) => {
+authLogController.get("/auth-log/:logId", rbacAdminMiddleware, async (c) => {
     try {
         const { logId } = c.req.param();
 
@@ -96,7 +99,7 @@ authLogController.get("/auth-log/:logId", async (c) => {
     }
 });
 
-authLogController.delete("/auth-log/:logId", async (c) => {
+authLogController.delete("/auth-log/:logId", rbacAdminMiddleware, async (c) => {
     try {
         const { logId } = c.req.param();
 
@@ -114,7 +117,7 @@ authLogController.delete("/auth-log/:logId", async (c) => {
     }
 });
 
-authLogController.patch("/auth-log/:logId", async (c) => {
+authLogController.patch("/auth-log/:logId", rbacAdminMiddleware, async (c) => {
     try {
         const { logId } = c.req.param();
         const updateData = await c.req.json();
@@ -133,7 +136,7 @@ authLogController.patch("/auth-log/:logId", async (c) => {
     }
 });
 
-authLogController.get("/auth-logs/date", async (c) => {
+authLogController.get("/auth-logs/date", rbacAdminMiddleware, async (c) => {
     try {
         const { userId, date, limit = 10, offset = 0 } = c.req.query();
 
