@@ -1,5 +1,6 @@
 import { Hono } from "hono";
-// import {}
+import { lookup as geoipLookup } from "fast-geoip";
+import { isbot } from 'isbot';
 import { logAuthAttempt, getAuthLogs, getAuthLogById, deleteAuthLog, updateAuthLog, getAuthLogsByDate} from "../services/authLogService";
 
 
@@ -7,13 +8,45 @@ const authLogController = new Hono();
 
 authLogController.post("/auth-log", async (c) => {
     try {
-        const { userId, browser, ipAddress, deviceType, deviceOS, country, date, isBot, isTunnel } = await c.req.json();
+        const { userId, browser, ipAddress, deviceType, deviceOS, date } = await c.req.json();
 
-        if (!userId || !browser || !ipAddress || !deviceType || !deviceOS || !country || !date) {
+        if (!userId || !browser || !ipAddress || !deviceType || !deviceOS || !date) {
             return c.json({ error: "All fields are required" }, 400);
         }
 
-        await logAuthAttempt(userId, browser, ipAddress, deviceType, deviceOS, country, date, isBot, isTunnel);
+        // Extract IP address from headers
+        const clientIp = c.req.header("x-forwarded-for") || c.req.header("remote-addr") || ipAddress;
+
+        // Get country
+        const country = await geoipLookup(clientIp)
+        .then((geo) => {
+            if (geo) {
+                return geo.country;
+            } else {
+                return "Unknown";
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching geo data:", error);
+            return "Unknown";
+        });
+
+
+        const userAgent = c.req.header('user-agent');
+        const isRequestBot = isbot(userAgent);
+        let isTunnel = false;
+
+        const forwardedFor = c.req.header('x-forwarded-for');
+        if (forwardedFor) {
+            const ips = forwardedFor.split(',').map(ip => ip.trim());
+            // var clientIp;
+
+            if (ips.length > 1) {
+                isTunnel = true;
+            }
+        }
+
+        await logAuthAttempt(userId, browser, ipAddress, deviceType, deviceOS, country, date, isRequestBot, isTunnel);
 
         return c.json({ message: "Auth log created successfully" }, 201);
     }
