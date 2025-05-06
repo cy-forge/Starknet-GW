@@ -8,6 +8,13 @@
       "when": 1743851948686,
       "tag": "0000_loud_wither",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1746366808897,
+      "tag": "0001_absurd_tombstone",
+      "breakpoints": true
     }
   ]
 }

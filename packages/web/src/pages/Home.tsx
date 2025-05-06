@@ -1,8 +1,15 @@
-import { Account } from '@/components/dashboard/account';
-import { BronzeTier } from '@/components/dashboard/BronzeTier';
-import { Switch } from '@/components/ui/switch';
-import { setupThemeToggle } from '@/lib/themeToggle';
-import { Link } from 'react-router';
+import { Account } from "@/components/dashboard/account";
+import { BronzeTier } from "@/components/dashboard/BronzeTier";
+import SuperDuper from "@/components/dashboard/SuperDuper";
+import { FundingWarning } from "@/components/dashboard/funding";
+import { XpWeeklyRecap } from "@/components/dashboard/XpWeeklyRecap";
+
+import { Switch } from "@/components/ui/switch";
+import { setupThemeToggle } from "@/lib/themeToggle";
+import { Link } from "react-router";
+import BadgeDetails from "@/components/badge/badgeModal";
+import RewardsModal from "@/components/ui/rewards-modal";
+import TwitterLinkedModal from "@/components/ui/twitter-linked-modal";
 
 const { toggleTheme, isDarkMode } = setupThemeToggle();
 
@@ -51,6 +58,17 @@ const HomePage = () => {
             Account Modal <Account />
           </div>
         </li>
+        <li>
+          <div className="text-primary-bluegreen hover:underline flex items-center">
+            Badge Modal <BadgeDetails />
+          </div>
+        </li>
+        <li>
+          <RewardsModal />
+        </li>
+        <li>
+          <TwitterLinkedModal />
+        </li>
       </ul>
       <div>
         <BronzeTier
@@ -59,6 +77,19 @@ const HomePage = () => {
           xp={200}
           maxXp={1000}
           timeLeft={{ hours: 132, minutes: 48, seconds: 3 }}
+        />
+      </div>
+
+      <SuperDuper />
+
+      <div>
+        <XpWeeklyRecap />
+      </div>
+
+      <div className="my-8">
+        <FundingWarning
+          title="This wallet can only be used within the abstract network"
+          desc="Do not send funds to this address on another chain, or they will be lost"
         />
       </div>
     </div>

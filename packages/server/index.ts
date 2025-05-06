@@ -2,7 +2,9 @@ import { Hono } from "hono";
 import { rbacAdminMiddleware } from "./src/middlewares/rbacMiddleware";
 import { cors } from 'hono/cors'
 import authController from "./src/controllers/authController";
+import categoryController from './src/controllers/categoryController';
 import { initializeDB } from "./src/utils/db";
+import userController from "./src/controllers/userController";
 
 const app = new Hono();
 
@@ -18,6 +20,8 @@ app.use('*', cors());
  *  */ 
 
 app.route('/auth', authController);
+app.route('/user', userController);
 app.get('/', (c) => c.text("hello"));
+app.route('/api/categories', categoryController);
 
 export default app;
