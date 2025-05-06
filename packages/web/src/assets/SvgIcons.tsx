@@ -352,4 +352,31 @@ export const SvgIcons = {
       />
     </svg>
   ),
+  perksIconPlaceholder: () => (
+    <svg
+      width="46"
+      height="51"
+      viewBox="0 0 46 51"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M23 0L45.0836 12.75V38.25L23 51L0.916351 38.25V12.75L23 0Z"
+        fill="url(#paint0_linear_423_5217)"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_423_5217"
+          x1="23"
+          y1="0"
+          x2="23"
+          y2="51"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#656565" />
+          <stop offset="1" stopColor="#9F9F9F" />
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
 };
