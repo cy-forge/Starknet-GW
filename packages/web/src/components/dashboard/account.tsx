@@ -47,7 +47,7 @@ export function Account() {
                 </p>
 
                 <p className="text-[#9DA3AC] capitalize font-Sansation font-normal text-lg">
-                  You have not linked any wallets to your abstract global wallet
+                  You have not linked any wallets to your Orbis Wallet
                 </p>
               </div>
             </div>

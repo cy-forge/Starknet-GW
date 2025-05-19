@@ -32,9 +32,9 @@ function TradeDashboard_Event() {
             </p>
             <div className="w-full flex-col flex items-start border-b pb-5 border-b-[#314140] ">
               <p className="dark:text-[#F4F6FA] text-[#1E1E1E] font-normal text-sm">
-                ETH (Ether) is the native gas token for the starkNet Global
-                wallet. it serves as the wallet’s primary currency for paying
-                transaction fee (gas)
+                ETH (Ether) is the native gas token for the Orbis Wallet. it
+                serves as the wallet’s primary currency for paying transaction
+                fee (gas)
               </p>
             </div>
             <div className="pt-5 flex-wrap flex items-start gap-3">
