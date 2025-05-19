@@ -1,13 +1,13 @@
-# Starknet Global Wallet: Component Requirements Document
+# Orbis Wallet: Component Requirements Document
 
 ## I. Introduction
 
 ### 1.1. Project Vision
 
-This section introduces the core concept and goals of the Starknet Global
+This section introduces the core concept and goals of the Orbis
 Wallet.
 
-The **Starknet Global Wallet** initiative aims to redefine user interaction
+The **Orbis Wallet** initiative aims to redefine user interaction
 within the Starknet ecosystem by introducing a web-based, extension-less wallet
 solution. The core concept revolves around providing users with a seamless and
 consistent experience across all integrated decentralized applications (dApps)
@@ -33,7 +33,7 @@ This section outlines the document's purpose and the scope of the requirements
 covered.
 
 This document provides a detailed decomposition of the technical requirements
-for the Starknet Global Wallet system, broken down by major components.
+for the Orbis Wallet system, broken down by major components.
 
 The scope encompasses requirements for:
 
@@ -49,14 +49,14 @@ The scope encompasses requirements for:
 
 This document serves as a foundational technical blueprint intended for
 development teams, technical leads, and architects responsible for designing and
-implementing the Starknet Global Wallet.
+implementing the Orbis Wallet.
 
 ### 1.3. Key Differentiator
 
-This section highlights the unique aspects of the Starknet Global Wallet
+This section highlights the unique aspects of the Orbis Wallet
 compared to existing solutions.
 
-The primary technical innovation and key differentiator of the Starknet Global
+The primary technical innovation and key differentiator of the Orbis
 Wallet compared to existing solutions like Privy or Cartridge lies in its
 commitment to achieving a **universal state** across all integrated dApps.
 
@@ -77,7 +77,7 @@ contract.
 
 The frontend encompasses two primary user experiences: the centralized "**Root
 dApp**" web interface where users manage their wallet directly, and the
-interactions prompted within integrated dApps via the **Global Wallet SDK**.
+interactions prompted within integrated dApps via the **Orbis Wallet SDK**.
 
 ### 2.1. Root dApp - Centralized Web Interface
 
@@ -94,7 +94,7 @@ This web application serves as the primary management hub for users.
     - Potentially an option to connect or link an existing MetaMask wallet
       (requires careful design).
 - **Account Dashboard:**
-  - Display the user's unique Starknet Global Wallet address.
+  - Display the user's unique Orbis Wallet address.
   - Show an aggregated view of asset balances (fungible tokens, NFTs).
   - List recent transaction history (fetched from Backend APIs).
 - **Asset Management:**
@@ -1050,7 +1050,7 @@ patterns. Early detection is critical.
 
 ### 11.1. Summary of Requirements
 
-This document outlines technical requirements for the Starknet Global Wallet,
+This document outlines technical requirements for the Orbis Wallet,
 covering:
 
 - User-friendly **Frontend** (Root dApp, SDK prompts)

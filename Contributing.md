@@ -1,16 +1,16 @@
-# Contributing to Starknet Global Wallet
+# Contributing to Orbis Wallet
 
-Thank you for your interest in contributing to Starknet Global Wallet! We
+Thank you for your interest in contributing to Orbis Wallet! We
 appreciate your help in making this project better. This guide outlines the
 basic steps for contributing.
 
 ## How to Contribute
 
-Starknet Global Wallet uses OnlyDust to manage contributions. Here's the
+Orbis Wallet uses OnlyDust to manage contributions. Here's the
 process:
 
 1. **Find an Issue:** Browse the open issues on our OnlyDust page
-   [Starknet Global Wallet](https://app.onlydust.com/projects/starknet-global-wallet/overview).
+   [Orbis Wallet](https://app.onlydust.com/projects/orbis-wallet/overview).
    Look for issues labeled "good first issue" if you're new to the project, or
    other issues that interest you.
 
@@ -20,7 +20,7 @@ process:
 3. **Issue Assignment:** A project maintainer will review your application. If
    you're selected, the issue will be assigned to you on OnlyDust.
 
-4. **Fork the Repository:** Fork the Starknet Global Wallet repository on GitHub
+4. **Fork the Repository:** Fork the Orbis Wallet repository on GitHub
    to your own GitHub account.
 
 5. **Create a Branch:** Create a new branch for your work. Use a descriptive
@@ -36,7 +36,7 @@ process:
 
 8. **Create a Pull Request (PR):** Push your branch to your forked repository on
    GitHub. Then, create a pull request from your branch to the main branch of
-   the Starknet Global Wallet repository.
+   the Orbis Wallet repository.
 
 9. **PR Review:** A project maintainer will review your PR. They may request
    changes or provide feedback. Address any comments and push updated code to
@@ -66,6 +66,6 @@ documentation (e.g., the README, developer guides) to reflect the changes.
 ## Questions?
 
 If you have any questions, feel free to ask on our Telegram group
-[Starknet Global Wallet](https://t.me/+ZQluOv2SsUIwMDdk).
+[Orbis Wallet](https://t.me/+ZQluOv2SsUIwMDdk).
 
-Thank you again for contributing to Starknet Global Wallet!
+Thank you again for contributing to Orbis Wallet!

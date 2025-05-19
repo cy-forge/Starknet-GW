@@ -1,4 +1,4 @@
-# Orbis Wallet (formally Orbis Wallet
+# Orbis Wallet (formally Starknet Global Wallet)
 
 **A Cross-Application Smart Wallet for Starknet**
 
